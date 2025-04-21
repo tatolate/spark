@@ -5,6 +5,7 @@ import Page2 from './page/Page2.vue';
 import Page3 from './page/Page3.vue';
 import Page4 from './page/Page4.vue';
 const page_number = ref(1)
+document.cookie="experience=true; path=/";
 </script>
 
 <template>
