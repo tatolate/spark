@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { Motion } from '@motionone/vue';
   import { defineEmits } from 'vue';
-  import NotFoundNoise from '../components/tachihara.vue';
   import Header from '../components/Headers/Artwork.vue';
+  import NotFoundNoise from '../components/Noise/tachihara.vue';
+  import WholeNoise from '../components/Noise/WholeNoise.vue';
   const emit = defineEmits(['nextpage']);
   const fadeIn = {
     initial: { opacity: 0 },
@@ -24,10 +25,10 @@
 <template>
   <Header/>
   <main>
-    <div class="TitleCall glitch-bg">
+    <WholeNoise/>
+    <div class="TitleCall">
       <Motion :initial="fadeIn.initial" :animate="fadeIn.animate" :exit="fadeIn.exit">
-        <!-- TextMessageはHTMLタグも使用可能 -->
-        <NotFoundNoise class="title"> Reactを使いませんか？<br>僕の健康上の都合でアレルギーが出てしまうんです </NotFoundNoise>
+        <NotFoundNoise class="title"> Reactを使いませんか？<br>宗教上の理由でVueを扱えないんです。 </NotFoundNoise>
       </Motion>
     </div>
   </main>
