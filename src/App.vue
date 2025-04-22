@@ -9,7 +9,7 @@ document.cookie="experience=true; path=/";
 </script>
 
 <template>
-  <Page1 @nextpage="page_number++" v-if="page_number == 1" />
+  <Page1 @nextpage="page_number=2" v-if="page_number == 1" />
   <Page2 @nextpage="page_number++" v-if="page_number == 2" />
   <Page3 @nextpage="page_number++" v-if="page_number == 3" />
   <Page4 @nextpage="page_number = 1" v-if="page_number == 4" />
