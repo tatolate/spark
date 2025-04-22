@@ -1,10 +1,10 @@
 <template>
    <header>
      <div class="header_top">
-       <img src="https://placehold.jp/37x37.png" class="icon1">
-       <img src="https://placehold.jp/37x37.png" class="icon2">
-       <img src="https://placehold.jp/37x37.png" class="icon3">
-       <img src="https://placehold.jp/237x68.png" class="logo">
+       <img src="https://placehold.jp/37x37.png" class="header_icon1">
+       <img src="https://placehold.jp/37x37.png" class="header_icon2">
+       <img src="https://placehold.jp/37x37.png" class="header_icon3">
+       <img src="https://placehold.jp/237x68.png" class="sns_logo">
      </div>
      <div class="header_div">
         <ul class="header_ul">
@@ -14,9 +14,6 @@
         </ul>
       </div>
    </header>
-   <body>
-    <img src="https://placehold.jp/50x50.png">
-   </body>
 </template>
 
 <script>
@@ -30,28 +27,28 @@ export default {};
      background-color: aqua;
   }
  
-  .icon1{
+  .header_icon1{
      position: absolute;
      top: 37px;
      left: 5px;
      border-radius: 100px;
 }
  
-   .icon2{
+   .header_icon2{
      position: absolute;
      top: 37px;
      left: 47px;
      border-radius: 100px;
    }
  
-   .icon3{
+   .header_icon3{
      position: absolute;
      top: 37px;
      left: 89px;
      border-radius: 100px;
    }
  
-   .logo{
+   .sns_logo{
      float: right;
      position: absolute;
      top: 16px;
