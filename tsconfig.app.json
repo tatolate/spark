@@ -9,8 +9,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "types" :["vite/client"],
     "baseUrl": ".",
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","src/lib/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","src/lib/*.vue","src/**/ts"]
 }
