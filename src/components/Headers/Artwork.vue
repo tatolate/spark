@@ -20,7 +20,7 @@ export default{};
     </header>
 </template>
 
-<style>
+<style scoped>
   @keyframes noise{
     0% {background-position-y: 0px;}
     100% {background-position-y: -420px;}

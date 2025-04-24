@@ -7,11 +7,11 @@
        <img src="https://placehold.jp/237x68.png" class="sns_logo">
      </div>
      <div class="header_div">
-        <ul class="header_ul">
-          <li class="header_button1">NOW TREND?</li>
-          <li class="header_button2">What are they?</li>
-          <li class="header_button3">What are you?</li>
-        </ul>
+        <div class="header_ul">
+          <div class="header_button1">NOW TREND?</div>
+          <div class="header_button2">What are they?</div>
+          <div class="header_button3">What are you?</div>
+        </div>
       </div>
    </header>
 </template>
@@ -23,10 +23,13 @@ export default {};
 <style>
   header{
      position: relative;
-     height: 98px;
-     background-color: aqua;
+     
   }
  
+  .header_top{
+    height: 98px;
+    background-color: aqua;
+  }
   .header_icon1{
      position: absolute;
      top: 37px;
@@ -59,7 +62,6 @@ export default {};
    .header_ul{
     display: flex;
     position: relative;
-    top: 100px;
     font-size: 13px;
     color: white;
     list-style: none;
@@ -69,7 +71,7 @@ export default {};
    .header_button1{
     
     text-align: center;
-    width: 33%;
+    flex:1;
     height: 40px;
     margin: 0px;
     padding: 0px;
@@ -80,7 +82,7 @@ export default {};
    .header_button2{
     
     text-align: center;
-    width: 33%;
+    flex:1;
     height: 40px;
     margin: 0px;
     padding: 0px;
@@ -92,7 +94,7 @@ export default {};
    .header_button3{
     
     text-align: center;
-    width: 33%;
+    flex:1;
     height: 40px;
     margin: 0px;
     padding: 0px;
