@@ -13,7 +13,6 @@
     "PostContents_Front": [
         {
           "Account_id": "string",
-          "PostTitle": "string",
           "PostContent": "string",
           "PostImage": "string",
           "PostDate": "string",

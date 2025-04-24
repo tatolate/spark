@@ -1,15 +1,7 @@
 <script setup lang="ts">
-  import { Motion } from '@motionone/vue';
   import { defineEmits } from 'vue';
-  import Header from '../components/Headers/Artwork.vue';
-  import NotFoundNoise from '../components/Noise/tachihara.vue';
-  import WholeNoise from '../components/Noise/WholeNoise.vue';
+  import PsychoGlitch from '../components/Noise/PsychoGlitch.vue';
   const emit = defineEmits(['nextpage']);
-  const fadeIn = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 2 } },
-    exit: { opacity: 0 }
-  };
   const experience = document.cookie
     .split('; ')
     .find(row => row.startsWith('experience='))
@@ -17,21 +9,13 @@
 
   if (experience === 'true') {
     setTimeout(() => {
-      emit('nextpage');
+      //emit('nextpage');
     }, 5000);
   }
 </script>
 
 <template>
-  <Header/>
-  <main>
-    <WholeNoise/>
-    <div class="TitleCall">
-      <Motion :initial="fadeIn.initial" :animate="fadeIn.animate" :exit="fadeIn.exit">
-        <NotFoundNoise class="title"> Reactを使いませんか？<br>宗教上の理由でVueを扱えないんです。 </NotFoundNoise>
-      </Motion>
-    </div>
-  </main>
+  <PsychoGlitch style="font-size:100px"></PsychoGlitch>
 </template>
 
 <style scoped>

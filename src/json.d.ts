@@ -8,7 +8,6 @@ interface ContentDataType {
   
     PostContents_Front: {
       Acount_id: string;
-      PostTitle: string;
       PostContent: string;
       PostImage: string;
       PostDate: string;
