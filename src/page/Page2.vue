@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import Header from "../components/Headers/Fake_SNS.vue"
 import snsContent from "../components/bodys/snsbody.vue";
 import axios from "axios";
+import Go_viral from "../components/bodys/go_viral.vue";
 defineProps({
   double: {
     type: Boolean,
@@ -31,14 +32,11 @@ onMounted(() => {
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage" :AccountName="ContentData.Accounts.find(account => account.id === post.Account_id)?.name || ''">{{post.PostContent}}</snsContent>
     </div>
   </div>
-  <div class="gradient"></div>
+  <Go_viral/>
 </template>
 
 <style scoped>
 
-.gradient{
-    background: linear-gradient(white, black); 
-    padding-bottom: 500px;
-}
+
 
 </style>
