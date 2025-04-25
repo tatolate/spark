@@ -2,12 +2,12 @@
 interface ContentDataType {
     Accounts: {
       name: string,
+      id: string,
       image: string,
       description: string
     }[];
-  
     PostContents_Front: {
-      Acount_id: string;
+      Account_id: string;
       PostContent: string;
       PostImage: string;
       PostDate: string;

@@ -1,6 +1,6 @@
 <template>
     <div class="glitch-wrapper">
-      <p :data-text="text">{{ text }}</p>
+      <p><slot></slot></p>
     </div>
 </template>
   
