@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 defineProps({
     AccountName: {
         type: String,
@@ -14,7 +13,6 @@ defineProps({
         required: true,
     },
 })
-const inside = ref(false)
 </script>
 
 <template>
