@@ -1,42 +1,38 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import Header from "../components/Headers/Fake_SNS.vue"
+import Header from "../components/Headers/Fake_SNS.vue";
 import snsContent from "../components/bodys/snsbody.vue";
-import axios from "axios";
 import Go_viral from "../components/bodys/go_viral.vue";
+
+// App.vueから渡されるデータをpropsで受け取る
 defineProps({
-  double: {
-    type: Boolean,
-    default: false,
+  contentData: {
+    type: Object as () => { 
+      PostContents_Front: { Account_id: string; PostImage: string; PostContent: string }[], 
+      Accounts: account[] 
+    },
+    required: true
   }
 });
 
-const ContentData = ref<ContentDataType | null>(null);
-
-onMounted(() => {
-  axios.get('/Content.json')
-    .then(response => {
-      console.log('API取得成功:', response.data);
-      ContentData.value = response.data;
-    })
-    .catch(error => {
-      console.error('API取得エラー:', error);
-    });
-});
+interface account {
+  name: string,
+  id: string,
+  image: string,
+  description: string
+}
 </script>
 
 <template>
-  <Header/>
-  <div v-if="ContentData" >
-    <div v-for="(post, index) in ContentData.PostContents_Front" :key="index">
-      <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage" :AccountName="ContentData.Accounts.find(account => account.id === post.Account_id)?.name || ''">{{post.PostContent}}</snsContent>
+  <Header />
+  <div v-if="contentData">
+    <div v-for="(post, index) in contentData.PostContents_Front" :key="index">
+      <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
+        :AccountName="contentData.Accounts.find(account => account.id === post.Account_id)?.name || ''">
+        {{ post.PostContent }}
+      </snsContent>
     </div>
   </div>
-  <Go_viral/>
+  <Go_viral />
 </template>
 
-<style scoped>
-
-
-
-</style>
+<style scoped></style>

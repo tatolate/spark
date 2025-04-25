@@ -1,16 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import Page1 from './page/Page1.vue';
 import Page2 from './page/Page2.vue';
 import Page3 from './page/Page3.vue';
 import Page4 from './page/Page4.vue';
-const page_number = ref(1)
-document.cookie="experience=true; path=/";
+
+const page_number = ref(1);
+const contentData = ref<ContentDataType>({
+  Accounts: [],
+  PostContents_Front: []
+});
+
+document.cookie = "experience=true; path=/";
+
+onMounted(() => {
+  // JSONデータを取得
+  axios.get('/Content.json')
+    .then(response => {
+      console.log('API取得成功:', response.data);
+      contentData.value = response.data;
+    })
+    .catch(error => {
+      console.error('API取得エラー:', error);
+    });
+});
 </script>
 
 <template>
   <Page1 @nextpage="page_number=2" v-if="page_number == 1" />
-  <Page2 @nextpage="page_number++" v-if="page_number == 2" />
+  <Page2 
+    @nextpage="page_number++" 
+    v-if="page_number == 2" 
+    :content-data="contentData" 
+  />
   <Page3 @nextpage="page_number++" v-if="page_number == 3" />
   <Page4 @nextpage="page_number = 1" v-if="page_number == 4" />
 </template>
