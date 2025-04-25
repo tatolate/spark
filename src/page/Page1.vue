@@ -1,56 +1,62 @@
 <script setup lang="ts">
-  import { defineEmits } from 'vue';
-  import PsychoGlitch from '../components/Noise/PsychoGlitch.vue';
-  const emit = defineEmits(['nextpage']);
-  const experience = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('experience='))
-    ?.split('=')[1];
+import NotFoundNoise from "../components/Noise/404Noise.vue";
+import { Motion } from '@motionone/vue';
+import WholeNoise from "../components/Noise/WholeNoise.vue";
+import { ref, onMounted } from "vue";
 
-  if (experience === 'true') {
-    setTimeout(() => {
-      //emit('nextpage');
-    }, 5000);
-  }
+const showSecondMotion = ref(false);
+onMounted(() => {
+  setTimeout(() => {
+    showSecondMotion.value = true;
+  }, 3000); // 3 seconds delay
+});
+
+const FadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 1 }
+};
 </script>
 
 <template>
-  <PsychoGlitch style="font-size:100px"></PsychoGlitch>
+  <div v-for="i in 5" :key="i">
+    <WholeNoise />
+  </div>
+  <main>
+    <div class="TitleCall">
+      <Motion v-bind="FadeIn">
+        <NotFoundNoise style="color: black; font-size: 30px;">人間やめますか<br>バズりますか。</NotFoundNoise>
+      </Motion>
+      <Motion
+        v-bind="{ initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1 } }"
+        v-show="showSecondMotion"
+      >
+        <NotFoundNoise
+          @click="$emit('nextpage')"
+          style="color: red; font-size: 25px; height: 30px; font-family: 'Hina Mincho', serif; font-weight: 400; font-style: normal;"
+        >
+          作品ヲミル
+        </NotFoundNoise>
+      </Motion>
+    </div>
+  </main>
 </template>
 
 <style scoped>
-  main{
-    top: 0%;
-  }
-  main .TitleCall{
-    background-image: url("https://t3.ftcdn.net/jpg/05/19/65/92/360_F_519659267_knsn5lLGlnDUOoxHiJsRoLFFt5PBKcmW.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 91vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
+main {
+  top: 0%;
+}
 
-  @keyframes noiseEffect {
-    0% {
-      background-image: url("https://mybook.co.jp/column/photography-technique/img/landscape3.jpg");
-    }
-    50% {
-      background-image: url("https://via.placeholder.com/1920x1080?text=Noise");
-    }
-    100% {
-      background-image: url("https://mybook.co.jp/column/photography-technique/img/landscape3.jpg");
-    }
-  }
+main .TitleCall {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  main .TitleCall.noise {
-    animation: noiseEffect 0.5s ease-in-out;
-  }
-
-  .TitleCall h1 {
-    font-size: 30px;
-    margin-left:30px;
-    color: white;
-  }
+main .TitleCall > *:not(:last-child) {
+  margin-bottom: 10px;
+}
 </style>
