@@ -34,7 +34,7 @@ onMounted(() => {
   <Page2 
     @nextpage="page_number++" 
     v-if="page_number == 2" 
-    :content-data="contentData" 
+    :contentdata="contentData" 
   />
   <Page3 @nextpage="page_number++" v-if="page_number == 3" />
   <Page4 @nextpage="page_number = 1" v-if="page_number == 4" />
