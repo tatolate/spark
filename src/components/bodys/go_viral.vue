@@ -1,6 +1,6 @@
 <template>
     <div class="gradient">
-        <h1>あなたもバズる？</h1>
+        <h1><u>あなたもバズる？</u></h1>
     </div>
 </template>
 <style scoped>
@@ -13,7 +13,7 @@
 
 .gradient h1{
     position: absolute;
-    color: white;
+    color: #d10a14;
     top: 200px;
     right: 0;
     bottom: 0;
