@@ -48,7 +48,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 .noise-container {
   position: absolute;
   width: 100%;

@@ -13,7 +13,7 @@ https://codepen.io/dmwhy/pen/oLMBEv
 export default {};
 </script>
 
-<style>
+<style scoped>
     .glitch-text, button{
     font-family: monospace;
     font-weight:bold;

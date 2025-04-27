@@ -10,5 +10,5 @@
     </main>
 </template>
 
-<style>
+<style scoped>
 </style>
