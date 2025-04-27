@@ -23,7 +23,7 @@ interface account {
 </script>
 
 <template>
-  <Header />
+  <Header :inside="false"/>
   <div v-if="contentdata">
     <div v-for="(post, index) in contentdata.PostContents_Front" :key="index">
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
