@@ -37,8 +37,7 @@ defineProps({
 </div>
 </template>
 
-1
-0
+
 <style scoped>
 .snssentence {
     position: relative;
@@ -90,6 +89,7 @@ defineProps({
     margin-top: 15px;
     border: solid aqua 1px;
     border-radius: 3px;
+    margin-bottom: 0px;
 }
 
 /* ここから裏側投稿用 */
@@ -128,5 +128,6 @@ div.inSide{
     border-radius: 3px;
     color: white;
     background-color: black;
+    margin-bottom: 0px;
 }
 </style>
