@@ -5,7 +5,7 @@
 <template>
   <h1>3ページ目</h1>
 
-  <button @click="$emit('nextpage')">2ページ目</button>
+  <button @click="$emit('nextpage')">4ページ目</button>
 </template>
 
 <style scoped>
