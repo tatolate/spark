@@ -1,5 +1,14 @@
+<script setup lang="ts">
+defineProps({
+  inside: { 
+    type:Boolean,
+    required: true,
+   },
+})
+</script>
+
 <template>
-    <div class="gradient">
+    <div class="gradient" :class="{inSide: inside}">
         <h1><u>あなたもバズる？</u></h1>
     </div>
 </template>
@@ -7,14 +16,32 @@
 .gradient{
     position: relative;
     text-align: center;
-    background: linear-gradient(white, black); 
-    padding-bottom: 500px;
+    background: linear-gradient(white, black 70%); 
+    padding-bottom: 1000px;
 }
 
 .gradient h1{
     position: absolute;
     color: #d10a14;
-    top: 200px;
+    top: 550px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+/* ここから裏側投稿用 */
+.gradient.inSide{
+    position: relative;
+    text-align: center;
+    background: linear-gradient(#790000, black 70%); 
+    padding-bottom: 1000px;
+}
+
+.gradient.inSide h1{
+    position: absolute;
+    color: #C0C0C0;
+    top: 550px;
     right: 0;
     bottom: 0;
     left: 0;

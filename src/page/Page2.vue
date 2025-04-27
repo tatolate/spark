@@ -32,7 +32,7 @@ interface account {
       </snsContent>
     </div>
   </div>
-  <Go_viral @click="$emit('nextpage')"/>
+  <Go_viral :inside="false" @click="$emit('nextpage')"/>
 </template>
 
 <style scoped></style>
