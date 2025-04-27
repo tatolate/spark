@@ -27,7 +27,7 @@ interface account {
   <div v-if="contentdata">
     <div v-for="(post, index) in contentdata.PostContents_Front" :key="index">
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
-        :AccountName="contentdata.Accounts.find(account => account.id === post.Account_id)?.name || ''">
+        :AccountName="contentdata.Accounts.find(account => account.id === post.Account_id)?.name || ''" :inside="false">
         {{ post.PostContent }}
       </snsContent>
     </div>
