@@ -57,14 +57,14 @@ defineProps({
     margin-left: 8px;
     border-radius: 100px;
     z-index: 10;
-    border: solid 1px aqua;
+    border: solid 1px #5ce1e6;
 }
 
 .username {
     font-size: 13px;
     margin-top: 6px;
     margin-left: 40px;
-    border: solid aqua 2px;
+    border: solid #5ce1e6 2px;
     border-radius: 20px;
     z-index: 5;
     padding-left: 20px;
@@ -87,7 +87,7 @@ defineProps({
 
 .userpost p {
     margin-top: 15px;
-    border: solid aqua 1px;
+    border: solid #5ce1e6 1px;
     border-radius: 3px;
     margin-bottom: 0px;
 }
