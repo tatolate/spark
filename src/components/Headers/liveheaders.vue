@@ -25,7 +25,7 @@ header{
 }
 
 .header_top{
-    height: 98px;
+    height: 110px;
     background-color: #5ce1e6;
 }
 
@@ -58,7 +58,7 @@ header{
 }
 
 .header_top.inSide{
-    height: 98px;
+    height: 110px;
     background-color: black;
 }
 </style>
