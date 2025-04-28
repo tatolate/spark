@@ -143,7 +143,7 @@
         },
         {
           "Account_id": "@ganbarukun_nagi777",
-        　"Account_name":"闘病中！なぎの日記",
+          "Account_name":"闘病中！なぎの日記",
           "PostContent":"闘病大変だけど、共感のコメントがいっぱいで嬉しいです。ありがとう！ #頑張った日記 #闘病",
           "PostImage": "",
           "PostDate": "4/31",
@@ -170,7 +170,7 @@
         {
           "Account_id": "@climbing_diary310",
           "Account_name":"とある登山家の日記",
-        　"Name_change":"",
+          "Name_change":"",
           "PostContent": "誰とも話さなかった3日間。SNSにアップする写真だけが、僕がそこにいた証拠。",
           "PostImage": "image/post1_back.png"
         },
@@ -212,10 +212,10 @@
         },
         {
           "Account_id": "@ganbarukun_nagi777",
-        　"Account_name":"闘病中！なぎの日記",
+          "Account_name":"闘病中！なぎの日記",
           "Name_change":"",
           "PostContent":"どいつもこいつも、わかるわかるって。何が分かるんだろう。みんな知らない、一人の孤独も、ずっと見ていなきゃいけない天井も、コピーみたいな共感の嵐も。",
           "PostImage": ""
-        },
+        }
       ]
 }

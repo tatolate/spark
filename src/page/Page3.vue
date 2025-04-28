@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import FaceDetection from '../../src/components/FaceDetection.vue';
+import LiveHeader from "../components/Headers/liveheaders.vue";
+
 
 </script>
 
 <template>
-  <h1>3ページ目</h1>
-
-  <button @click="$emit('nextpage')">4ページ目</button>
+  <LiveHeader :inside="false"/>
+  <FaceDetection />
+  <button @click="$emit('nextpage')">2ページ目</button>
 </template>
 
 <style scoped>

@@ -5,7 +5,6 @@ import Page1 from './page/Page1.vue';
 import Page2 from './page/Page2.vue';
 import Page3 from './page/Page3.vue';
 import Page4 from './page/Page4.vue';
-import PageLive from './page/PageLive.vue';
 
 
 const page_number = ref(1);
