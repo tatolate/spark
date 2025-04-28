@@ -150,18 +150,18 @@
           "Comments": [
             {
               "account_id": "gento8832",
-              "CommentContent": "俺も辛いことあったけど、頑張ろうって思える。",
+              "CommentContent": "俺も辛いことあったけど、頑張ろうって思える。"
             }
             {
               "account_id": "melt_rou3001",
-              "CommentContent": "大変なんだろうなってわかる。辛いと思うけど頑張って！",
+              "CommentContent": "大変なんだろうなってわかる。辛いと思うけど頑張って！"
             }
             {
               "account_id": "masters0221",
-              "CommentContent": "私も入院したことあるからわかる。辛いよね…。",
+              "CommentContent": "私も入院したことあるからわかる。辛いよね…。"
             }
           ]
-        },
+        }
       ]
 
 
@@ -172,45 +172,44 @@
           "Account_name":"とある登山家の日記",
         　"Name_change":"",
           "PostContent": "誰とも話さなかった3日間。SNSにアップする写真だけが、僕がそこにいた証拠。",
-          "PostImage": "image/post1_back.png",
+          "PostImage": "image/post1_back.png"
         },
         {
           "Account_id": "@yuya18372",
           "Account_name":"ゆーな",
           "PostContent": "会話はSNSに載せる時だけ。食器も片付けない。今は、部屋に鍵かけた。",
-          "PostImage": "image/post2_back.png",
+          "PostImage": "image/post2_back.png"
         },
         {
           "Account_id": "@beuaty_life18372",
           "Account_name":"#きれいなくらし",
           "PostContent": "綺麗なのは、使ってないからなのにね。",
           "PostImage": "image/post3_back.png",
-          "PostDate": "4/11",
+          "PostDate": "4/11"
         },
         {
           "Account_id": "@maaaaaaaai0423",
           "Account_name":"NETNEWS@毎週更新",
           "PostContent":"《ネットニュース》公園で女性が意識不明の重体。駆けつけた一般人が処置を行おうとするも、同じく駆けつけた数名によって処置の妨害を受け、処置が遅れたものとみられています。警察は原因を調べており…",
-          "PostImage":null,
-          "PostDate": "4/13",
+          "PostImage":null
         },
         {
           "Account_id": "@loveeee_timachan663",
           "Account_name":"Kaito@裏",
           "PostContent":"最近誰かにつけられてる気がして怖い。家にも手紙とか、贈り物とかが不定期に知らない人から届く。家の中でも視線を感じるときあるし、不安で眠れない。アイドル辞めたい、助けて。",
-          "PostImage": "https://imgur.com/DuZ6835",
+          "PostImage": "https://imgur.com/DuZ6835"
         },
         {
           "Account_id": "@jk_kawaiicute21684",
           "Account_name":"JKのかわいい日記",
           "PostContent":"一年前の画像と、ポジティブっていう言葉。ほんとは学校いけてないのに。私じゃない私を、みんなどんどん好きになっていくんだ。もう戻れない。みんなが認めてくれるのは、私じゃないもん。",
-          "PostImage": null,
+          "PostImage": null
         },
         {
           "Account_id": "@ganbarukun_nagi777",
         　"Account_name":"闘病中！なぎの日記",
           "PostContent":"どいつもこいつも、わかるわかるって。何が分かるんだろう。みんな知らない、一人の孤独も、ずっと見ていなきゃいけない天井も、コピーみたいな共感の嵐も。",
-          "PostImage": "",
+          "PostImage": ""
         },
       ]
 }
