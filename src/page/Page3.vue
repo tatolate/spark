@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FaceDetection from '../../src/components/FaceDetection.vue';
+import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 
 
@@ -7,7 +7,7 @@ import LiveHeader from "../components/Headers/liveheaders.vue";
 
 <template>
   <LiveHeader :inside="false"/>
-  <FaceDetection />
+  <FaceDetectionNoisever />
   <button @click="$emit('nextpage')">2ページ目</button>
 </template>
 

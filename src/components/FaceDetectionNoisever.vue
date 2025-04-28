@@ -159,18 +159,20 @@ const displayVideoDetections = (detections: Detection[]) => {
 
     const displayWidth = video.offsetWidth;
     const displayHeight = video.offsetHeight;
-    const scaleX = displayWidth / video.videoWidth;
-    const scaleY = displayHeight / video.videoHeight;
+    const scale = displayHeight / video.videoHeight;
+    const blackVW =  video.videoWidth * scale;
+    const leftmargin = (blackVW - displayWidth) / 2;
+
 
     const mirroredOriginX =
       video.videoWidth -
       detection.boundingBox.originX -
       detection.boundingBox.width;
 
-    const boxWidth = detection.boundingBox.width * scaleX;
-    const boxHeight = detection.boundingBox.height * scaleY;
-    const boxLeft = mirroredOriginX * scaleX;
-    const boxTop = detection.boundingBox.originY * scaleY;
+    const boxWidth = detection.boundingBox.width * scale;
+    const boxHeight = detection.boundingBox.height * scale;
+    const boxLeft = mirroredOriginX * scale;
+    const boxTop = detection.boundingBox.originY * scale;
 
     // Create a VNode for the VideoNoise component wrapped in a positioned div
     const noiseWrapperVNode = h(
@@ -178,7 +180,7 @@ const displayVideoDetections = (detections: Detection[]) => {
       {
         style: {
           position: 'absolute',
-          left: `${boxLeft}px`,
+          left: `${boxLeft - leftmargin}px`,
           top: `${boxTop}px`,
           width: `${boxWidth}px`, // Pass width to wrapper
           height: `${boxHeight}px`, // Pass height to wrapper
@@ -275,16 +277,17 @@ const VideoNoise = (props: { width: string; height: string }) => {
 <style scoped>
 .videoView {
   position: relative;
+  text-align: center;
   height: 100vh;
-  width: 50vw;
+  width: 100vw;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 #webcam {
+  height: 100%;
+  width:  100%;
   display: block;
-  height: 100vh;
-  width: 50vw;
-  height: auto;
+  object-fit: cover;
 }
 </style>
