@@ -6,7 +6,7 @@ import LiveHeader from "../components/Headers/liveheaders.vue";
 </script>
 
 <template>
-  <LiveHeader :inside="true"/>
+  <LiveHeader :inside="false"/>
   <FaceDetection />
   <button @click="$emit('nextpage')">2ページ目</button>
 </template>
