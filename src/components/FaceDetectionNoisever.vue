@@ -159,8 +159,20 @@ const displayVideoDetections = (detections: Detection[]) => {
 
     const displayWidth = video.offsetWidth;
     const displayHeight = video.offsetHeight;
-    const scale = displayHeight / video.videoHeight;
+
+    let scale: number;
+
+if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
+  // displayWidthがvideo.videoWidthより長い場合
+  scale = displayHeight / video.videoHeight;
+} else {
+  // displayHeightがvideo.videoHeightより長い場合
+  scale = displayWidth / video.videoWidth;
+}
+
     const blackVW =  video.videoWidth * scale;
+    const blackVH  = video.videoHeight * scale;
+    const topmargin = (blackVH - displayHeight) / 2;
     const leftmargin = (blackVW - displayWidth) / 2;
 
 
@@ -181,7 +193,7 @@ const displayVideoDetections = (detections: Detection[]) => {
         style: {
           position: 'absolute',
           left: `${boxLeft - leftmargin}px`,
-          top: `${boxTop}px`,
+          top: `${boxTop - topmargin}px`,
           width: `${boxWidth}px`, // Pass width to wrapper
           height: `${boxHeight}px`, // Pass height to wrapper
           // border: '2px solid rgba(255, 0, 0, 0.5)', // Optional: Add border for debugging
