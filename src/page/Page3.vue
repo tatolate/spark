@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever.vue';
+import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever1.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import Like from "../components/bodys/like.vue"
 
