@@ -7,7 +7,7 @@ import {
   type FaceDetectorResult,
 } from "@mediapipe/tasks-vision";
 
-const colorMap: string[] = ["#FFD700", "#FF69B4", "#00FFFF", "#ADFF2F", "#FF4500"]; // キラキラ用の色
+const colorMap: string[] = ["#FFD700", "#FF69B4", "#00FFFF", "#ADFF2F", "#FF4500", "#00ffff", "#00ff7f", "#00ff00"]; // キラキラ用の色
 
 // --- Refs for DOM elements ---
 const videoRef = ref<HTMLVideoElement | null>(null);
@@ -25,6 +25,7 @@ onMounted(async () => {
   await initializeFaceDetector();
   await nextTick();
   await enableCam();
+  generateRandomSparkles(); // ランダムな位置にエフェクトを生成
 });
 
 onBeforeUnmount(() => {
@@ -123,6 +124,7 @@ const displayVideoDetections = (detections: Detection[]) => {
 
   children.value = [];
 
+  // 顔検出結果に基づくエフェクト
   detections.forEach((detection) => {
     if (!detection.boundingBox) return;
 
@@ -164,6 +166,37 @@ const displayVideoDetections = (detections: Detection[]) => {
   });
 };
 
+// ランダムな位置にエフェクトを生成
+const generateRandomSparkles = () => {
+  const randomSparkleCount = 10; // ランダムに生成するエフェクトの数
+  const liveView = liveViewRef.value;
+
+  if (!liveView) return;
+
+  for (let i = 0; i < randomSparkleCount; i++) {
+    const randomWidth = Math.random() * liveView.offsetWidth;
+    const randomHeight = Math.random() * liveView.offsetHeight;
+
+    const sparkleWrapperVNode = h(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: `${randomWidth}px`,
+          top: `${randomHeight}px`,
+          width: "50px",
+          height: "50px",
+          pointerEvents: "none",
+          zIndex: "1",
+        },
+      },
+      [h(SparkleEffect, { width: "50px", height: "50px" })]
+    );
+
+    children.value.push(sparkleWrapperVNode);
+  }
+};
+
 const SparkleEffect = (props: { width: string; height: string }) => {
   const sparkleElements = [];
   const sparkleCount = 20; // Number of sparkles
@@ -199,60 +232,3 @@ const SparkleEffect = (props: { width: string; height: string }) => {
   );
 };
 </script>
-
-<template>
-  <section id="demos" class="invisible">
-    <div
-      ref="liveViewRef"
-      id="liveView"
-      class="videoView"
-      style="position: relative"
-    >
-      <video
-        ref="videoRef"
-        id="webcam"
-        autoplay
-        playsinline
-        @loadeddata="predictWebcam"
-        style="transform: scaleX(-1)"
-      ></video>
-      <component v-for="(child, index) in children" :key="index" :is="child" />
-    </div>
-  </section>
-</template>
-
-<style scoped>
-.videoView {
-  position: relative;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #ffffff;
-}
-
-#webcam {
-  height: 100%;
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.sparkle {
-  animation: sparkle-animation 1.5s infinite;
-}
-
-@keyframes sparkle-animation {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}
-</style>
