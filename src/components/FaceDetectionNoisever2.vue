@@ -10,8 +10,8 @@ const colorMap: Record<number, string> = {
   1: "#000000",
   2: "#FFFFFF",
   3: "#FF0000",
-  4: "#00FF00",
-  5: "#0000FF",
+  4: "#8F0F0F",
+  5: "#4a4a4a",
 };
 
 // --- Refs for DOM elements ---
@@ -232,13 +232,13 @@ const VideoNoise = (props: { width: string; height: string }) => {
           position: "absolute", // 親要素内で絶対位置指定
           width: `${randomNumbers[i]}px`, // ランダムな幅を設定
           textAlign: "center",
-          height: "6px",
+          height: "20px",
           top: `${i}px`, // 各ノイズ要素のY位置を設定
           left: "50%", // 中央に配置
           transform: "translateX(-50%)", // 要素の幅の半分移動して中央に揃える
           backgroundColor: colorMap[Math.floor(Math.random() * 5) + 1], // ランダムな色を設定
           pointerEvents: "none", // クリックイベントを無効化
-          zIndex: "-1", // 他の要素の背後に表示
+          zIndex: "1", // 他の要素の背後に表示
         },
       });
     noiseElements.push(noiseVNode);
