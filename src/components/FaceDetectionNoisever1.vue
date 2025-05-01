@@ -7,7 +7,9 @@ import {
   type FaceDetectorResult,
 } from "@mediapipe/tasks-vision";
 
-const colorMap: string[] = ["#FFD700", "#FF69B4", "#00FFFF", "#ADFF2F", "#FF4500"]; // キラキラ用の色
+const colorMap: string[] = ["#FF0000","#FF00FF","#800080","#4B0082","#0000FF","#00FFFF","#00FF00","#ADFF2F","#FFFF00","#FFA500",
+"#FFD700","#C0C0C0","#2ECC71","#00008B","#E0115F","#9966CC",
+"#FFC0CB","#E6E6FA","#87CEEB","#98FB98","#FFFACD"]; // キラキラ用の色
 
 // --- Refs for DOM elements ---
 const videoRef = ref<HTMLVideoElement | null>(null);
