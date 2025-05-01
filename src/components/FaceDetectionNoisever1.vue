@@ -7,9 +7,7 @@ import {
   type FaceDetectorResult,
 } from "@mediapipe/tasks-vision";
 
-const colorMap: string[] = ["#FF0000","#FF00FF","#800080","#4B0082","#0000FF","#00FFFF","#00FF00","#ADFF2F","#FFFF00","#FFA500",
-"#FFD700","#C0C0C0","#2ECC71","#00008B","#E0115F","#9966CC",
-"#FFC0CB","#E6E6FA","#87CEEB","#98FB98","#FFFACD"]; // キラキラ用の色
+const colorMap: string[] = ["#FFFFFF"]; // キラキラ用の色
 
 // --- Refs for DOM elements ---
 const videoRef = ref<HTMLVideoElement | null>(null);
@@ -163,8 +161,8 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
           position: "absolute",
           left: `${boxLeft - leftmargin}px`,
           top: `${boxTop - topmargin}px`,
-          width: `${boxWidth}px`,
-          height: `${boxHeight}px`,
+          width: `${displayWidth}px`,
+          height: `${displayHeight}px`,
           pointerEvents: "none",
           zIndex: "1",
         },
@@ -185,9 +183,9 @@ const SparkleEffect = (props: { width: string; height: string }) => {
       class: "sparkle",
       style: {
         position: "absolute",
-        width: "10px",
-        height: "10px",
-        borderRadius: "50%",
+        width: "50px",
+        height: "50px",
+        clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)", // 星形
         backgroundColor: colorMap[Math.floor(Math.random() * colorMap.length)],
         top: `${Math.random() * parseInt(props.height)}px`,
         left: `${Math.random() * parseInt(props.width)}px`,
