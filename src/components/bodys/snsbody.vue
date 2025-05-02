@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import WholeNoise from "../Noise/WholeNoise.vue";
 import { GlitchedElement } from 'vue-powerglitch'
 
@@ -21,8 +21,8 @@ defineProps({
         type: Boolean,
         required: true,
     },
-    timing:{
-        type:Number,
+    timing: {
+        type: Number,
         default: 2850
     }
 })
@@ -36,15 +36,14 @@ defineProps({
         <div class="snssentence">
             <div class="snsuser">
                 <img src="https://placehold.jp/50x50.png" class="usericon" :class="{ inSide: inside }">
-                <h3 class="username" :class="{ inSide: inside }">{{ AccountName }}<span class="userid"> {{
-                    AccountID }}</span></h3>
+                <h3 class="username" :class="{ inSide: inside }">{{ AccountName }}<span class="userid"> {{ AccountID
+                }}</span></h3>
             </div>
             <div class="userpost" :class="{ inSide: inside }">
-                <GlitchedElement v-if="inside" :options="{'timing' : { 'duration' : timing } }">
+                <img v-if="!inside" :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
+                <GlitchedElement v-else :options="{'timing' : { 'duration' : timing } }">
                     <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
                 </GlitchedElement>
-                <img v-if="inside == false" :src="typeof PostImage === 'string' ? PostImage : PostImage.src"
-                    class="postmedia">
                 <p>
                     <slot></slot>
                 </p>
@@ -111,6 +110,10 @@ defineProps({
 /* ここから裏側投稿用 */
 div.inSide {
     background-color: #790000;
+}
+
+h3.inSide {
+    color: white;
 }
 
 .usericon.inSide {

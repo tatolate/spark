@@ -9,6 +9,7 @@ interface ContentDataType {
     PostContents_Front: {
       Account_id: string;
       PostContent: string;
+      Account_name: string;
       PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {
@@ -20,6 +21,7 @@ interface ContentDataType {
     PostContents_Back:{
       Account_id: string;
       PostContent: string;
+      Account_name: string;
       PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {

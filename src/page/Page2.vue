@@ -14,7 +14,6 @@ defineProps({
     default: false
   }
 });
-
 </script>
 
 <template>
@@ -22,8 +21,8 @@ defineProps({
   <div v-if="contentdata">
     <div v-for="(post, index) in inside ? contentdata.PostContents_Back : contentdata.PostContents_Front" :key="index">
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
-      :AccountName="contentdata.Accounts.find(account => account.id === post.Account_id)?.name || ''" :inside="inside"
-      :timing="Math.floor(Math.random()* 1000+2000)">
+      :AccountName="post.Account_name" :inside="inside"
+      :timing="Math.floor(Math.random()* 1000+3000)">
       {{ post.PostContent }}
       </snsContent>
     </div>
