@@ -56,7 +56,7 @@
         {
           "Account_id": "@beuaty_life18372",
           "Account_name":"#きれいなくらし",
-          "PostContent": null,
+          "PostContent": "",
           "PostImage": "image/post3.png",
           "PostDate": "4/11",
           "Comments": [
@@ -191,7 +191,7 @@
           "Account_name":"NETNEWS@毎週更新",
           "Name_change":"",
           "PostContent":"《ネットニュース》公園で女性が意識不明の重体。駆けつけた一般人が処置を行おうとするも、同じく駆けつけた数名によって処置の妨害を受け、処置が遅れたものとみられています。警察は原因を調べており…",
-          "PostImage":null
+          "PostImage":""
         },
         {
           "Account_id": "@loveeee_timachan663",
@@ -205,7 +205,7 @@
           "Account_name":"JKのかわいい日記",
           "Name_change":"",
           "PostContent":"一年前の画像と、ポジティブっていう言葉。ほんとは学校いけてないのに。私じゃない私を、みんなどんどん好きになっていくんだ。もう戻れない。みんなが認めてくれるのは、私じゃないもん。",
-          "PostImage": null
+          "PostImage": ""
         },
         {
           "Account_id": "@ganbarukun_nagi777",

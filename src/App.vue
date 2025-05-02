@@ -17,26 +17,26 @@ const contentData = ref<ContentDataType>({
 document.cookie = "experience=true; path=/";
 
 const preloadImages = (resultData: ContentDataType) => {
-  const preload = (src: string): string => {
+  const preload = (src: string): HTMLImageElement => {
     const img = new Image();
     img.src = src;
-    return img.src;
+    return img;
   };
 
   resultData.Accounts.forEach(account => {
-    if (account.image) {
+    if (account.image != "" && typeof account.image === 'string') {
       account.image = preload(account.image);
     }
   });
 
   resultData.PostContents_Front.forEach(post => {
-    if (post.PostImage) {
-      post.PostImage = preload(post.PostImage);
-    }
+    if (post.PostImage != "" && typeof post.PostImage === 'string') {
+        post.PostImage = preload(post.PostImage);
+      }
   });
 
   resultData.PostContents_Back.forEach(post => {
-    if (post.PostImage) {
+    if (post.PostImage != "" && typeof post.PostImage === 'string') {
       post.PostImage = preload(post.PostImage);
     }
   });

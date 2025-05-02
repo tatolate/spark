@@ -3,13 +3,13 @@ interface ContentDataType {
     Accounts: {
       name: string,
       id: string,
-      image: string,
+      image: string | HTMLImageElement,
       description: string
     }[];
     PostContents_Front: {
       Account_id: string;
       PostContent: string;
-      PostImage: string;
+      PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {
         Comment_id: string;
@@ -20,7 +20,7 @@ interface ContentDataType {
     PostContents_Back:{
       Account_id: string;
       PostContent: string;
-      PostImage: string;
+      PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {
         Comment_id: string;

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { PropType } from 'vue';
+
 defineProps({
     AccountName: {
         type: String,
@@ -9,12 +11,12 @@ defineProps({
         required: true,
     },
     PostImage: {
-        type: String,
+        type: [String, Object] as PropType<string | HTMLImageElement>,
         required: true,
     },
     inside: {
         // 文字化け見せる用のオプション
-        type:Boolean,
+        type: Boolean,
         required: true,
     },
 })
@@ -28,7 +30,7 @@ defineProps({
             <h3 class="username" :class="{inSide: inside}">{{ AccountName }}<span class="userid"> {{ AccountID }}</span></h3>
         </div>
         <div class="userpost" :class="{inSide: inside}">
-            <img :src="PostImage" class="postmedia">
+            <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
             <p>
                 <slot></slot>
             </p>
