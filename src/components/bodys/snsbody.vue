@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import { PropType } from 'vue';
+import WholeNoise from "../Noise/WholeNoise.vue";
+import { GlitchedElement } from 'vue-powerglitch'
 
 defineProps({
     AccountName: {
@@ -19,24 +21,36 @@ defineProps({
         type: Boolean,
         required: true,
     },
+    timing:{
+        type:Number,
+        default: 2850
+    }
 })
 </script>
 
 <template>
-<div :class="{inSide: inside}">
-    <div class="snssentence">
-        <div class="snsuser">
-            <img src="https://placehold.jp/50x50.png" class="usericon" :class="{inSide: inside}">
-            <h3 class="username" :class="{inSide: inside}">{{ AccountName }}<span class="userid"> {{ AccountID }}</span></h3>
-        </div>
-        <div class="userpost" :class="{inSide: inside}">
-            <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
-            <p>
-                <slot></slot>
-            </p>
+    <div v-for="(index) in 7" :key="index">
+        <WholeNoise v-if="inside" />
+    </div>
+    <div :class="{ inSide: inside }">
+        <div class="snssentence">
+            <div class="snsuser">
+                <img src="https://placehold.jp/50x50.png" class="usericon" :class="{ inSide: inside }">
+                <h3 class="username" :class="{ inSide: inside }">{{ AccountName }}<span class="userid"> {{
+                    AccountID }}</span></h3>
+            </div>
+            <div class="userpost" :class="{ inSide: inside }">
+                <GlitchedElement v-if="inside" :options="{'timing' : { 'duration' : timing } }">
+                    <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
+                </GlitchedElement>
+                <img v-if="inside == false" :src="typeof PostImage === 'string' ? PostImage : PostImage.src"
+                    class="postmedia">
+                <p>
+                    <slot></slot>
+                </p>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 
@@ -77,7 +91,7 @@ defineProps({
     color: grey;
 }
 
-.postmedia{
+.postmedia {
     width: 100%;
     height: auto;
 }
@@ -95,11 +109,11 @@ defineProps({
 }
 
 /* ここから裏側投稿用 */
-div.inSide{
+div.inSide {
     background-color: #790000;
 }
 
-.usericon.inSide{
+.usericon.inSide {
     position: absolute;
     font-size: 10px;
     margin-left: 8px;
@@ -108,7 +122,7 @@ div.inSide{
     border: solid 1px #df0404;
 }
 
-.username.inSide{
+.username.inSide {
     font-size: 13px;
     margin-top: 6px;
     margin-left: 40px;
@@ -120,7 +134,7 @@ div.inSide{
     background-color: black;
 }
 
-.username.inSide span{
+.username.inSide span {
     color: white;
 }
 

@@ -2,7 +2,11 @@
 import NotFoundNoise from "../components/Noise/404Noise.vue";
 import { Motion } from '@motionone/vue';
 import WholeNoise from "../components/Noise/WholeNoise.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineProps } from "vue";
+
+defineProps({
+  imagesLoaded: Boolean
+});
 
 const showSecondMotion = ref(false);
 onMounted(() => {
@@ -27,14 +31,8 @@ const FadeIn = {
       <Motion v-bind="FadeIn">
         <NotFoundNoise style="color: black; font-size: 30px;">人間やめますか<br>バズりますか。</NotFoundNoise>
       </Motion>
-      <Motion
-        v-bind="{ initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1 } }"
-        v-show="showSecondMotion"
-      >
-        <NotFoundNoise
-          @click="$emit('nextpage')"
-          style="color: red; font-size: 25px; height: 30px; font-family: 'Hina Mincho', serif; font-weight: 400; font-style: normal;"
-        >
+      <Motion v-bind="{ initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1 } }" v-show="showSecondMotion && imagesLoaded">
+        <NotFoundNoise @click="$emit('nextpage')" style="color: red; font-size: 25px; height: 30px; font-family: 'Hina Mincho', serif; font-weight: 400; font-style: normal;">
           作品ヲミル
         </NotFoundNoise>
       </Motion>
