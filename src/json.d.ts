@@ -17,5 +17,16 @@ interface ContentDataType {
         CommentDate: string;
       }[];
     }[];
+    PostContents_Back:{
+      Account_id: string;
+      PostContent: string;
+      PostImage: string;
+      PostDate: string;
+      Comments: {
+        Comment_id: string;
+        CommentContent: string;
+        CommentDate: string;
+      }[];
+    }[];
   
   }
