@@ -149,8 +149,9 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
       detection.boundingBox.originX -
       detection.boundingBox.width;
 
-    const boxWidth = detection.boundingBox.width * scale;
-    const boxHeight = detection.boundingBox.height * scale;
+    const expansionFactor = 2; // expansionFactor倍に拡大
+    const boxWidth = detection.boundingBox.width * scale *  expansionFactor;
+    const boxHeight = detection.boundingBox.height * scale * expansionFactor * 2;
     const boxLeft = mirroredOriginX * scale;
     const boxTop = detection.boundingBox.originY * scale;
 
@@ -176,15 +177,15 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
 
 const SparkleEffect = (props: { width: string; height: string }) => {
   const sparkleElements = [];
-  const sparkleCount = 20; // Number of sparkles
+  const sparkleCount = 30; // Number of sparkles
 
   for (let i = 0; i < sparkleCount; i++) {
     const sparkleVNode = h("div", {
       class: "sparkle",
       style: {
         position: "absolute",
-        width: "50px",
-        height: "50px",
+        width: "40px",
+        height: "40px",
         clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)", // 星形
         backgroundColor: colorMap[Math.floor(Math.random() * colorMap.length)],
         top: `${Math.random() * parseInt(props.height)}px`,
