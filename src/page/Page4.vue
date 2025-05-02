@@ -2,24 +2,16 @@
 import Header from "../components/Headers/Fake_SNS.vue";
 import snsContent from "../components/bodys/snsbody.vue";
 import Go_viral from "../components/bodys/go_viral.vue";
+import type { PropType } from 'vue';
 
 // App.vueから渡されるデータをpropsで受け取る
 defineProps({
   contentdata: {
-    type: Object as () => { 
-      PostContents_Front: { Account_id: string; PostImage: string; PostContent: string }[], 
-      Accounts: account[] 
-    },
+    type: Object as PropType<ContentDataType>,
     required: true
   }
 });
 
-interface account {
-  name: string,
-  id: string,
-  image: string,
-  description: string
-}
 </script>
 
 <template>
