@@ -8,22 +8,27 @@ defineProps({
   contentdata: {
     type: Object as PropType<ContentDataType>,
     required: true
+  },
+  inside:{
+    type: Boolean,
+    default: false
   }
 });
 
 </script>
 
 <template>
-  <Header :inside="false"/>
+  <Header :inside="inside"/>
   <div v-if="contentdata">
-    <div v-for="(post, index) in contentdata.PostContents_Front" :key="index">
+    <div v-for="(post, index) in inside ? contentdata.PostContents_Back : contentdata.PostContents_Front" :key="index">
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
-        :AccountName="contentdata.Accounts.find(account => account.id === post.Account_id)?.name || ''" :inside="false">
-        {{ post.PostContent }}
+      :AccountName="contentdata.Accounts.find(account => account.id === post.Account_id)?.name || ''" :inside="inside"
+      :timing="Math.floor(Math.random()* 1000+2000)">
+      {{ post.PostContent }}
       </snsContent>
     </div>
   </div>
-  <Go_viral :inside="false" @click="$emit('nextpage')"/>
+  <Go_viral :inside="inside" @click="$emit('nextpage')"/>
 </template>
 
 <style scoped></style>
