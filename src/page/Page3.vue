@@ -9,8 +9,8 @@ import Like from "../components/bodys/like.vue"
 <template>
   <LiveHeader :inside="false"/>
   <FaceDetectionNoisever />
-  <button @click="$emit('nextpage')">2ページ目</button>
   <like class="like"/>
+  <button @click="$emit('nextpage')">2ページ目</button>
 </template>
 
 <style scoped>
@@ -19,6 +19,7 @@ import Like from "../components/bodys/like.vue"
 }
 .like{
   float: right;
-  margin-right: 15px;
+  margin-right: 65px;
+  bottom: 65px;
 }
 </style>
