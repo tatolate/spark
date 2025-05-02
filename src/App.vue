@@ -5,6 +5,7 @@ import Page1 from './page/Page1.vue';
 import Page2 from './page/Page2.vue';
 import Page3 from './page/Page3.vue';
 import Page5 from './page/Page5.vue';
+import Page6 from './page/Page6.vue';
 
 const page_number = ref(1);
 const contentData = ref<ContentDataType>({
@@ -68,5 +69,6 @@ onMounted(async () => {
   <Page2 @nextpage="page_number++" v-if="page_number == 2" :contentdata="contentData" :inside="false" />
   <Page3 @nextpage="page_number++" v-if="page_number == 3" />
   <Page2 @nextpage="page_number++" v-if="page_number == 4" :contentdata="contentData" :inside="true"/>
-  <Page5 @nextpage="page_number = 1" v-if="page_number == 5" />
+  <Page5 @nextpage="page_number++" v-if="page_number == 5" />
+  <Page6 v-if="page_number == 6" />
 </template>
