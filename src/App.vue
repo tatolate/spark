@@ -14,15 +14,12 @@ const contentData = ref<ContentDataType>({
   PostContents_Front: [],
   PostContents_Back: []
 });
+const imagesLoaded = ref(false);
 
 document.cookie = "experience=true; path=/";
 
 const preloadImages = (resultData: ContentDataType) => {
-  const preload = (src: string): HTMLImageElement => {
-    const img = new Image();
-    img.src = src;
-    return img;
-  };
+  const preload = (src: string): HTMLImageElement => { const img = new Image(); img.src = src; return img; };
 
   resultData.Accounts.forEach(account => {
     if (account.image != "" && typeof account.image === 'string') {
@@ -32,8 +29,8 @@ const preloadImages = (resultData: ContentDataType) => {
 
   resultData.PostContents_Front.forEach(post => {
     if (post.PostImage != "" && typeof post.PostImage === 'string') {
-        post.PostImage = preload(post.PostImage);
-      }
+      post.PostImage = preload(post.PostImage);
+    }
   });
 
   resultData.PostContents_Back.forEach(post => {
@@ -47,8 +44,7 @@ onMounted(() => {
   // JSONデータを取得
   axios.get('/Content.json')
     .then(response => {
-      console.log('API取得成功:', response.data);
-      const contentDat= preloadImages(response.data);
+      const contentDat = preloadImages(response.data);
       console.log('Preloaded Data:', contentDat);
       contentData.value = contentDat;
     })
@@ -56,13 +52,42 @@ onMounted(() => {
       console.error('API取得エラー:', error);
     });
 });
+
+const checkImagesLoaded =()=>{
+  let ComplateCount=0
+  for (const acount of contentData.value.Accounts){
+    if (acount.image instanceof HTMLImageElement) {
+      acount.image.onload =() => {ComplateCount++};
+    }else{ComplateCount++}
+  }
+  for (const post of contentData.value.PostContents_Front){
+    if (post.PostImage instanceof HTMLImageElement) {
+      post.PostImage.onload =() => {ComplateCount++};
+    }else{ComplateCount++}
+  }
+  for (const post of contentData.value.PostContents_Back){
+    if (post.PostImage instanceof HTMLImageElement) {
+      post.PostImage.onload =() => {ComplateCount++};
+    }else{ComplateCount++}
+  }
+  return ComplateCount;
+}
+const AllCounts=contentData.value.Accounts.length+contentData.value.PostContents_Front.length+contentData.value.PostContents_Back.length
+const waitForImagesToLoad = async () => {
+  while (checkImagesLoaded() == AllCounts) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  imagesLoaded.value = true;
+};
+
+waitForImagesToLoad();
 </script>
 
 <template>
-  <Page1 @nextpage="page_number=2" v-if="page_number == 1" />
-  <Page2 @nextpage="page_number++" v-if="page_number == 2" :contentdata="contentData"/>
+  <Page1 @nextpage="page_number = 2" v-if="page_number == 1" :imagesLoaded="imagesLoaded" />
+  <Page2 @nextpage="page_number++" v-if="page_number == 2" :contentdata="contentData" />
   <Page3 @nextpage="page_number++" v-if="page_number == 3" />
   <Page4 @nextpage="page_number++" v-if="page_number == 4" :contentdata="contentData" />
   <Page5 @nextpage="page_number = 1" v-if="page_number == 5" />
-  
+
 </template>
