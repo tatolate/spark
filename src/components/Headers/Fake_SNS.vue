@@ -10,10 +10,11 @@ defineProps({
 <template>
    <header>
      <div class="header_top" :class="{inSide: inside}">
-       <img src="https://placehold.jp/37x37.png" class="header_icon1">
-       <img src="https://placehold.jp/37x37.png" class="header_icon2">
-       <img src="https://placehold.jp/37x37.png" class="header_icon3">
-       <img src="https://placehold.jp/237x68.png" class="sns_logo">
+       <img src="/image/icon1.png" class="header_icon1" :class="{inSide: inside}">
+       <img src="/image/icon2.png" class="header_icon2">
+       <img src="/image/icon3.png" class="header_icon3">
+       <img src="/image/rogo_mirrow1.png" class="sns_logo" v-if="inside==false">
+       <img src="/image/rogo_mirrow2.png" class="sns_logo" :class="{inSide: inside}" v-if="inside">
      </div>
      <div class="header_div">
         <!-- 通常 -->
@@ -47,29 +48,37 @@ defineProps({
   .header_icon1{
      position: absolute;
      top: 37px;
-     left: 5px;
+     left: 15px;
+     width: 37px;
+     height: auto;
      border-radius: 100px;
 }
  
    .header_icon2{
      position: absolute;
      top: 37px;
-     left: 47px;
+     left: 57px;
+     width: 37px;
+     height: auto;
      border-radius: 100px;
    }
  
    .header_icon3{
      position: absolute;
      top: 37px;
-     left: 89px;
+     left: 99px;
+     width: 37px;
+     height: auto;
      border-radius: 100px;
    }
- 
+
    .sns_logo{
-     float: right;
      position: absolute;
-     top: 16px;
-     right: 17px;
+     width: 299px;
+     height: auto;
+     top: -150px;
+     right: -45px;
+     z-index: 10;
    }
 
 
@@ -124,6 +133,16 @@ defineProps({
     background-color: black;
   }
 
+  .sns_logo.inSide{
+    float: right;
+     position: absolute;
+     width: 299px;
+     height: auto;
+     top: -150px;
+     right: -30px;
+     z-index: 10;
+  }
+
   .header_inside{
     display: flex;
     position: relative;
@@ -162,5 +181,9 @@ defineProps({
     padding: 0px;
     background-color: black;
     border: solid 7px red;
+   }
+
+   .header_icon1.inSide{
+    filter: invert(100%);
    }
 </style>
