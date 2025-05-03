@@ -19,7 +19,7 @@ import Like from "../components/bodys/like.vue"
 }
 .like{
   float: right;
-  margin-right: 65px;
-  bottom: 65px;
+  margin-right: 70px;
+  bottom: 70px;
 }
 </style>
