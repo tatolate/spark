@@ -160,7 +160,7 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
       {
         style: {
           position: "absolute",
-          left: `${boxLeft - leftmargin}px`,
+          left: `${boxLeft - leftmargin * 1.5}px`,
           top: `${boxTop - topmargin}px`,
           width: `${displayWidth}px`,
           height: `${displayHeight}px`,
