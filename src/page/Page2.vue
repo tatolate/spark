@@ -23,7 +23,7 @@ defineProps({
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
       :AccountName="post.Account_name" :inside="inside"
       :timing="Math.floor(Math.random()* 1000+3000)">
-      {{ post.PostContent }}
+      <span v-html="post.PostContent"></span>
       </snsContent>
     </div>
   </div>
