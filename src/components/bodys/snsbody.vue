@@ -27,20 +27,12 @@ defineProps({
     }
 })
 const ContentFont = ref<string>("");
-const randomFont = () => {
-    const fonts = [
-        'Dela Gothic One',
-        'DotGothic16',
-        'New Tegomin',
-        'Noto Serif JP',
-        'Rampart One',
-        'Reggae One',
-        'Zen Kurenaido'
-    ];
+const randomFont = (count: number) => {
+    const fonts = ['Dela Gothic One', 'DotGothic16', 'New Tegomin', 'Noto Serif JP', 'Rampart One', 'Reggae One', 'Zen Kurenaido'];
     ContentFont.value = fonts[Math.floor(Math.random() * fonts.length)];
-    setTimeout(()=>{randomFont()}, 250);
+    if (count > 0) { setTimeout(() => { randomFont(count - 1); }, 50); }
 };
-randomFont();
+randomFont(50);
 </script>
 
 <template>
@@ -52,11 +44,11 @@ randomFont();
             <div class="snsuser">
                 <img src="https://placehold.jp/50x50.png" class="usericon" :class="{ inSide: inside }">
                 <h3 class="username" :class="{ inSide: inside }">{{ AccountName }}<span class="userid"> {{ AccountID
-                }}</span></h3>
+                        }}</span></h3>
             </div>
             <div class="userpost" :class="{ inSide: inside }">
                 <img v-if="!inside" :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
-                <GlitchedElement v-else :options="{'timing' : { 'duration' : timing } }">
+                <GlitchedElement v-else :options="{ 'timing': { 'duration': timing } }">
                     <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
                 </GlitchedElement>
                 <p :style="inside ? { fontFamily: ContentFont, fontStyle: 'normal' } : {}">
@@ -70,6 +62,7 @@ randomFont();
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=New+Tegomin&family=Noto+Serif+JP:wght@200..900&family=Rampart+One&family=Reggae+One&family=Zen+Kurenaido&display=swap');
+
 .snssentence {
     position: relative;
     padding-top: 51px;
