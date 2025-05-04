@@ -38,10 +38,9 @@ const randomFont = () => {
         'Zen Kurenaido'
     ];
     ContentFont.value = fonts[Math.floor(Math.random() * fonts.length)];
-    setTimeout(()=>{randomFont()},700)
+    setTimeout(()=>{randomFont()}, 250);
 };
-
-setInterval(() => {randomFont();}, 10);
+randomFont();
 </script>
 
 <template>
