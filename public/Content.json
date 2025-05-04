@@ -5,16 +5,16 @@
         "description":"string"
     },
     {
-      "name":"金子拓夢",
+      "name":"test",
       "image":"https://i.imgur.com/2j0v1xH.jpg",
-      "description":"寺坂レーニンに仕事をさせられています"
+      "description":"test"
     }
   ],
     "PostContents_Front": [
         {
           "Account_id": "@climbing_diary310",
           "Account_name":"とある登山家の日記",
-          "PostContent": "誰にも何にも縛られない僕、旅先で本当の自分に出会えた。#photo #旅行 #登山",
+          "PostContent": "誰にも何にも縛られない僕、旅先で本当の自分に出会えた。<br><span style='color:skyblue;'>#photo #旅行 #登山</span>",
           "PostImage": "image/post1.png",
           "PostDate": "4/21",
           "Comments": [
@@ -102,8 +102,8 @@
         {
           "Account_id": "@loveeee_timachan663",
           "Account_name":"Tima@カイト様推しの民",
-          "PostContent":"推し活やめられない。カイト様最高！カイト様やめられない！！！#推し活",
-          "PostImage": "image/post5",
+          "PostContent":"推し活やめられない。カイト様最高！カイト様やめられない！！！<br><span style='color:skyblue;'>#推し活</span>",
+          "PostImage": "image/post5.png",
           "PostDate": "4/16",
           "Comments": [
             {
@@ -123,7 +123,7 @@
         {
           "Account_id": "@jk_kawaiicute21684",
           "Account_name":"JKのかわいい日記",
-          "PostContent":"自分史上最高に盛れた！今日もポジティブでいくよ♡ #毎日更新チャレンジ #感謝 #いいねよろしく",
+          "PostContent":"自分史上最高に盛れた！今日もポジティブでいくよ♡ <br><span style='color:skyblue;'>#毎日更新チャレンジ #感謝 #いいねよろしく</span>",
           "PostImage": "",
           "PostDate": "4/26",
           "Comments": [
@@ -144,7 +144,7 @@
         {
           "Account_id": "@ganbarukun_nagi777",
           "Account_name":"闘病中！なぎの日記",
-          "PostContent":"闘病大変だけど、共感のコメントがいっぱいで嬉しいです。ありがとう！ #頑張った日記 #闘病",
+          "PostContent":"闘病大変だけど、共感のコメントがいっぱいで嬉しいです。ありがとう！ <br><span style='color:skyblue;'>#頑張った日記 #闘病</span>",
           "PostImage": "",
           "PostDate": "4/31",
           "Comments": [
@@ -198,7 +198,7 @@
           "Account_name":"Kaito@裏",
           "Name_change":"",
           "PostContent":"最近誰かにつけられてる気がして怖い。家にも手紙とか、贈り物とかが不定期に知らない人から届く。家の中でも視線を感じるときあるし、不安で眠れない。アイドル辞めたい、助けて。",
-          "PostImage": "https://imgur.com/DuZ6835"
+          "PostImage": ""
         },
         {
           "Account_id": "@jk_kawaiicute21684",
