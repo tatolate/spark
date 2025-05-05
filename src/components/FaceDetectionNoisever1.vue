@@ -166,6 +166,7 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
           width: `${boxWidth}px`,
           height: `${boxHeight}px`,
           pointerEvents: "none",
+          transform: "translateX(-50%)",
           zIndex: "1",
         },
       },
