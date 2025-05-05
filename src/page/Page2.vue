@@ -17,6 +17,7 @@ defineProps({
 </script>
 
 <template>
+  <div class="all-frame">
   <Header :inside="inside"/>
   <div v-if="contentdata">
     <div v-for="(post, index) in inside ? contentdata.PostContents_Back : contentdata.PostContents_Front" :key="index">
@@ -28,6 +29,11 @@ defineProps({
     </div>
   </div>
   <Go_viral :inside="inside" @click="$emit('nextpage')"/>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.all-frame{
+  overflow-x: hidden;
+}
+</style>

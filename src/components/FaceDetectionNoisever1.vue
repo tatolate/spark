@@ -1,3 +1,4 @@
+
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick, h, type VNode } from "vue";
 import {
@@ -149,9 +150,9 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
       detection.boundingBox.originX -
       detection.boundingBox.width;
 
-    const expansionFactor = 2; // expansionFactor倍に拡大
-    const boxWidth = detection.boundingBox.width * scale *  expansionFactor;
-    const boxHeight = detection.boundingBox.height * scale * expansionFactor * 2;
+ // expansionFactor倍に拡大
+    const boxWidth = detection.boundingBox.width * scale;
+    const boxHeight = detection.boundingBox.height * scale;
     const boxLeft = mirroredOriginX * scale;
     const boxTop = detection.boundingBox.originY * scale;
 
@@ -160,15 +161,15 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
       {
         style: {
           position: "absolute",
-          left: `${boxLeft - leftmargin * 1.5}px`,
+          left: `${boxLeft - leftmargin}px`,
           top: `${boxTop - topmargin}px`,
-          width: `${displayWidth}px`,
-          height: `${displayHeight}px`,
+          width: `${boxWidth}px`,
+          height: `${boxHeight}px`,
           pointerEvents: "none",
           zIndex: "1",
         },
       },
-      [h(SparkleEffect, { width: `${boxWidth}px`, height: `${boxHeight}px` })]
+      [h(SparkleEffect, { width: `${boxWidth * 3}px`, height: `${boxHeight * 1.1}px` })]
     );
 
     children.value.push(sparkleWrapperVNode);
@@ -239,11 +240,12 @@ const SparkleEffect = (props: { width: string; height: string }) => {
   height: 100vh;
   width: 100vw;
   background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 #webcam {
   height: 100%;
-  width: 100%;
+  width:  100%;
   display: block;
   object-fit: cover;
 }

@@ -9,7 +9,7 @@ defineProps({
 
 <template>
     <div class="gradient" :class="{inSide: inside}">
-        <h1><u>あなたもバズる？</u></h1>
+        <h1>あなたもバズる？</h1>
     </div>
 </template>
 <style scoped>
