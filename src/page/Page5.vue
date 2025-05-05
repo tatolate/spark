@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever2.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
+import bad from "../components/bodys/bad.vue"
 
 
 </script>
@@ -14,7 +15,7 @@ import LiveHeader from "../components/Headers/liveheaders.vue";
   <FaceDetectionNoisever />
   </div>
   <div class="frame3">
-  <like class="like"/>
+  <bad class="bad"/>
   </div>
   <div class="frame4">
   <button @click="$emit('nextpage')">2ページ目</button>
