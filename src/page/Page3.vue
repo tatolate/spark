@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Comment from '../../src/components/bodys/comment.vue';
 import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever1.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import Like from "../components/bodys/like.vue"
@@ -14,10 +15,13 @@ import Like from "../components/bodys/like.vue"
   <div class="frame2">
   <FaceDetectionNoisever />
   </div>
+  <div class="frame4">
+  <Comment />
+  </div>
   <div class="frame3">
   <like class="like"/>
   </div>
-  <div class="frame4">
+  <div class="frame5">
   <button @click="$emit('nextpage')">2ページ目</button>
   </div>
   </div>
@@ -48,6 +52,13 @@ import Like from "../components/bodys/like.vue"
   bottom: 70px;
   }
 .frame4{
+  position: relative;
+  z-index: 10;
+  height: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.frame5{
   position: relative;
   }
 </style>
