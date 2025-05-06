@@ -22,7 +22,7 @@ import bad from "../components/bodys/bad.vue"
   <bad class="bad"/>
   </div>
   <div class="frame5">
-  <button @click="$emit('nextpage')">2ページ目</button>
+  <button @click="$emit('nextpage')">現実に戻る</button>
   </div>
   </div>
 </template>

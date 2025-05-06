@@ -22,7 +22,7 @@ import Like from "../components/bodys/like.vue"
   <like class="like"/>
   </div>
   <div class="frame5">
-  <button @click="$emit('nextpage')">2ページ目</button>
+  <button @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</button>
   </div>
   </div>
 </template>
