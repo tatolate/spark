@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Comment from '../../src/components/bodys/comment2.vue';
 import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever2.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import bad from "../components/bodys/bad.vue"
@@ -14,10 +15,13 @@ import bad from "../components/bodys/bad.vue"
   <div class="frame2">
   <FaceDetectionNoisever />
   </div>
+  <div class="frame4">
+  <Comment />
+  </div>
   <div class="frame3">
   <bad class="bad"/>
   </div>
-  <div class="frame4">
+  <div class="frame5">
   <button @click="$emit('nextpage')">2ページ目</button>
   </div>
   </div>
@@ -27,6 +31,7 @@ import bad from "../components/bodys/bad.vue"
 .read-the-docs {
   color: #888;
 }
+
 .all-frame{
   overflow-x: hidden;
   position: absolute;
@@ -47,6 +52,13 @@ import bad from "../components/bodys/bad.vue"
   bottom: 70px;
   }
 .frame4{
+  position: relative;
+  z-index: 10;
+  height: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.frame5{
   position: relative;
   }
 </style>
