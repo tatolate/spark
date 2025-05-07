@@ -21,7 +21,7 @@
     height: auto;
     margin-left: 15px;
     animation-name: likeheart;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-timing-function: ease-out;
     animation-iteration-count:infinite;
 }

@@ -4,10 +4,10 @@ import { ref, onMounted } from "vue";
 
 // コメントリスト
 const comments = ref<{ account: string; message: string }[]>([
-  { account: "ゆうや", message: "こんにちは！" },
-  { account: "めい", message: "素晴らしい配信ですね！" },
-  { account: "たかし", message: "もっと見たいです！" },
-  { account: "mio", message: "ガチうけるｗ" },
+  { account: "ゆうや", message: "おもんな" },
+  { account: "めい", message: "クソ配信やん" },
+  { account: "たかし", message: "見る価値ないって" },
+  { account: "mio", message: "見てられない" },
 ]);
 
 // 新しいコメントを追加する関数
