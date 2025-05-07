@@ -238,7 +238,7 @@ const SparkleEffect = (props: { width: string; height: string }) => {
 .videoView {
   position: relative;
   text-align: center;
-  height: 100vh;
+  height: 78.5vh;
   width: 100vw;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
