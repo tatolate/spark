@@ -3,7 +3,17 @@ import Comment from '../../src/components/bodys/comment2.vue';
 import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever2.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import bad from "../components/bodys/bad.vue"
+import { ref, onMounted } from "vue";
 
+// frame5 の表示状態を管理するフラグ
+const showFrame5 = ref(false);
+
+onMounted(() => {
+  // 5秒後に frame5 を表示
+  setTimeout(() => {
+    showFrame5.value = true;
+  }, 10000); // ミリ秒 (秒)
+});
 
 </script>
 
@@ -21,9 +31,9 @@ import bad from "../components/bodys/bad.vue"
   <div class="frame3">
   <bad class="bad"/>
   </div>
-  <div class="frame5">
-  <button @click="$emit('nextpage')">現実に戻る</button>
-  </div>
+  <div v-if="showFrame5" class="frame5">
+      <div @click="$emit('nextpage')">現実に戻る</div>
+    </div>
   </div>
 </template>
 
@@ -34,31 +44,43 @@ import bad from "../components/bodys/bad.vue"
 
 .all-frame{
   overflow-x: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  position: relative;
+  width: 100vw;
   height: 100vh;
+  overflow-y: hidden;
 }
 .frame1{
-  position: relative;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 0%;
+
 }
 .frame2{
-  position: relative;
+  position: absolute;
+  top:163px;
+
+  left:0;
+  width: 100%;
+  height: 82%;
   }
 .frame3{
-  position: relative;
+  position: absolute;
   float: right;
-  margin-right: 70px;
+  right: 70px;
   bottom: 70px;
   }
 .frame4{
-  position: relative;
+  position: absolute;
   z-index: 10;
-  height: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  bottom: 0px
 }
 .frame5{
-  position: relative;
+  position: absolute;
+  top: 50%; /* 親要素の高さの50% */
+  left: 50%; /* 親要素の幅の50% */
+  transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
+  text-align: center; /* テキストを中央揃え */
   }
 </style>

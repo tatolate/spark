@@ -215,7 +215,6 @@ const SparkleEffect = (props: { width: string; height: string }) => {
       id="liveView"
       class="videoView"
       style="position: relative"
-      
     >
       <video
         ref="videoRef"

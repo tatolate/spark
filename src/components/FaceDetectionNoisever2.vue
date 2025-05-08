@@ -58,11 +58,6 @@ const initializeFaceDetector = async () => {
       runningMode: runningMode.value,
     });
     console.log("FaceDetector initialized");
-    // Make the demos section visible now that the detector is ready
-    const demosSection = document.getElementById("demos");
-    if (demosSection) {
-      demosSection.classList.remove("invisible");
-    }
   } catch (error) {
     console.error("Failed to initialize FaceDetector:", error);
     alert("Failed to initialize FaceDetector. Check console for details.");
@@ -264,8 +259,6 @@ const VideoNoise = (props: { width: string; height: string }) => {
 </script>
 
 <template>
-  <section id="demos" class="invisible">
-    <!-- Start invisible until initialized -->
     <div
       ref="liveViewRef"
       id="liveView"
@@ -280,10 +273,8 @@ const VideoNoise = (props: { width: string; height: string }) => {
         @loadeddata="predictWebcam"
         style="transform: scaleX(-1)"
       ></video>
-      <!-- Render the VNodes stored in the children ref -->
       <component v-for="(child, index) in children" :key="index" :is="child" />
     </div>
-  </section>
 </template>
 
 <style scoped>

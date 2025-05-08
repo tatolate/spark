@@ -4,6 +4,18 @@ import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever1.v
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import Like from "../components/bodys/like.vue"
 
+import { ref, onMounted } from "vue";
+
+// frame5 の表示状態を管理するフラグ
+const showFrame5 = ref(false);
+
+onMounted(() => {
+  // 5秒後に frame5 を表示
+  setTimeout(() => {
+    showFrame5.value = true;
+  }, 10000); // ミリ秒 (秒)
+});
+
 
 </script>
 
@@ -21,9 +33,9 @@ import Like from "../components/bodys/like.vue"
   <div class="frame3">
   <like class="like"/>
   </div>
-  <div class="frame5">
-  <div @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</div>
-  </div>
+  <div v-if="showFrame5" class="frame5">
+      <div @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</div>
+    </div>
   </div>
 </template>
 
@@ -68,10 +80,9 @@ import Like from "../components/bodys/like.vue"
 }
 .frame5{
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
+  top: 50%; /* 親要素の高さの50% */
+  left: 50%; /* 親要素の幅の50% */
+  transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
+  text-align: center; /* テキストを中央揃え */
   }
 </style>

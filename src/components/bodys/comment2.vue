@@ -97,10 +97,10 @@ onMounted(() => {
 <style scoped>
 .comment-section {
   position: relative;
-  bottom: 130px;
+  bottom: 10px;
   left: 10px;
   width: 300px;
-  max-height: 120px;
+  height: 120px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(201, 0, 0);
