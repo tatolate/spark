@@ -116,7 +116,7 @@ const goToNextPage = () => {
   height: 100%;
   background-color: black;
   opacity: 0;
-  animation: blackout-animation 3s forwards;
+  animation: blackout-animation 2s forwards;
   z-index: 100; /* 他の要素の上に表示 */
 }
 
@@ -146,10 +146,10 @@ const goToNextPage = () => {
     opacity: 0.5;
   }
   80% {
-    opacity: 0.8;
+    opacity: 0.1;
   }
   90% {
-    opacity: 0.1;
+    opacity: 0.8;
   }
   100% {
     opacity: 1;
