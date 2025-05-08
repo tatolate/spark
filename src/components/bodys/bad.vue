@@ -1,13 +1,34 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 
+// いいねのリストを管理
+const bads = ref<number[]>([]);
+
+// いいねを追加する関数
+const addBad = () => {
+  bads.value.push(Date.now()); // 一意の値をキーとして使用
+  if (bads.value.length > 100) {
+    bads.value.shift(); // 最大つまで保持
+  }
+};
+
+// 一定間隔でいいねを追加
+onMounted(() => {
+  setInterval(addBad, 1000); // 1秒ごとにいいねを追加
+});
 </script>
 
 <template>
 <div class="main_bad">
-  <img src="/image/bad.png" alt="" class="float_bad">
-  <img src="/image/bad.png" alt="" class="float_bad2">
-  <img src="/image/bad.png" class="bad_btn">
-</div>
+    <img
+      v-for="bad in bads"
+      :key="bad"
+      src="/image/bad.png"
+      alt=""
+      class="float_bad"
+    />
+    <img src="/image/bad.png" class="bad_btn" />
+  </div>
 </template>
 
 <style scoped>
