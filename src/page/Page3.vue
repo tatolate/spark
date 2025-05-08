@@ -4,6 +4,7 @@ import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever1.v
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import Like from "../components/bodys/like.vue"
 
+
 import { ref, onMounted } from "vue";
 
 const emit = defineEmits(["nextpage"]);
@@ -41,7 +42,7 @@ const goToNextPage = () => {
   setTimeout(() => {
     // ブラックアウト後に次のページに遷移
     emit("nextpage");
-  }, 1000); // 1秒後に遷移
+  }, 4500); //  秒後に遷移
 };
 
 const generateGlitchText = (text: string) => {
@@ -107,6 +108,7 @@ const generateGlitchText = (text: string) => {
   float: right;
   right: 70px;
   bottom: 70px;
+  z-index: 100;
   }
 .frame4{
   position: absolute;
@@ -119,10 +121,13 @@ const generateGlitchText = (text: string) => {
   left: 50%; /* 親要素の幅の50% */
   transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
   text-align: center; /* テキストを中央揃え */
-  color: rgb(0, 0, 0);
+  color: rgb(255, 0, 0); /* 皮肉な印象を与える赤色に変更 */
+  background-color: rgba(0, 0, 0, 0.8); /* 背景を暗い黒に変更 */
   font-size: 23px;
-  width: 100%;
-  }
+  width: 300px;
+  animation: frame5-glitch 0.3s infinite; /* グリッチアニメーションを追加 */
+  z-index: 100;
+}
 
   .blackout {
   position: fixed;
@@ -178,6 +183,29 @@ const generateGlitchText = (text: string) => {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes frame5-glitch {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  25% {
+    transform: translate(-48%, -52%) scale(1.02);
+    clip-path: inset(10% 0% 15% 0%);
+  }
+  50% {
+    transform: translate(-52%, -48%) scale(0.98);
+    clip-path: inset(5% 0% 10% 0%);
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.01);
+    clip-path: inset(15% 0% 5% 0%);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    clip-path: inset(0% 0% 0% 0%);
   }
 }
 

@@ -6,10 +6,13 @@ import bad from "../components/bodys/bad.vue"
 
 import { ref, onMounted } from "vue";
 
+const emit = defineEmits(["nextpage"]);
+
 // frame5 の表示状態を管理するフラグ
 const showFrame3 = ref(false);
 const showFrame4 = ref(false);
 const showFrame5 = ref(false);
+const isBlackout = ref(false); // ブラックアウト用のフラグ
 
 onMounted(() => {
   // 10秒後に frame5 を表示
@@ -26,6 +29,14 @@ onMounted(() => {
     showFrame3.value = true;
   }, 3000); // ミリ秒 (秒)
 });
+
+const goToNextPage = () => {
+  isBlackout.value = true;
+  setTimeout(() => {
+    // ブラックアウト後に次のページに遷移
+    emit("nextpage");
+  }, 4500); //  秒後に遷移
+};
 
 </script>
 
@@ -44,8 +55,9 @@ onMounted(() => {
   <bad class="bad"/>
   </div>
   <div v-if="showFrame5" class="frame5">
-      <div @click="$emit('nextpage')">現実に戻る</div>
+    <div @click="goToNextPage">現実に戻る</div>
     </div>
+    <div v-if="isBlackout" class="blackout"></div>
   </div>
 </template>
 
@@ -75,13 +87,14 @@ onMounted(() => {
 
   left:0;
   width: 100%;
-  height: 82%;
+  bottom: 0;
   }
 .frame3{
   position: absolute;
   float: right;
   right: 70px;
   bottom: 70px;
+  z-index: 100;
   }
 .frame4{
   position: absolute;
@@ -94,5 +107,96 @@ onMounted(() => {
   left: 50%; /* 親要素の幅の50% */
   transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
   text-align: center; /* テキストを中央揃え */
+  color: rgb(0, 0, 0); /* 皮肉な印象を与える赤色に変更 */
+  background-color: rgba(255, 255, 255, 0.8); /* 背景を暗い黒に変更 */
+  font-size: 23px;
+  width: 300px;
+  animation: frame5-glitch 0.3s infinite; /* グリッチアニメーションを追加 */
+  z-index: 100;
   }
+
+
+  .blackout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  animation: blackout-animation 2s forwards;
+  z-index: 100; /* 他の要素の上に表示 */
+}
+
+@keyframes blackout-animation {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  97% {
+    opacity: 0.5;
+  }
+  98% {
+    opacity: 0.8;
+  }
+  99% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes frame5-glitch {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  25% {
+    transform: translate(-48%, -52%) scale(1.02);
+    clip-path: inset(10% 0% 15% 0%);
+  }
+  50% {
+    transform: translate(-52%, -48%) scale(0.98);
+    clip-path: inset(5% 0% 10% 0%);
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.01);
+    clip-path: inset(15% 0% 5% 0%);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+
+
+
 </style>
