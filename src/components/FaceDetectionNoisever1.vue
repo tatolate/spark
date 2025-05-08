@@ -50,10 +50,6 @@ const initializeFaceDetector = async () => {
       runningMode: runningMode.value,
     });
     console.log("FaceDetector initialized");
-    const demosSection = document.getElementById("demos");
-    if (demosSection) {
-      demosSection.classList.remove("invisible");
-    }
   } catch (error) {
     console.error("Failed to initialize FaceDetector:", error);
     alert("Failed to initialize FaceDetector. Check console for details.");
@@ -214,7 +210,6 @@ const SparkleEffect = (props: { width: string; height: string }) => {
 </script>
 
 <template>
-  <section id="demos" class="invisible">
     <div
       ref="liveViewRef"
       id="liveView"
@@ -231,15 +226,14 @@ const SparkleEffect = (props: { width: string; height: string }) => {
       ></video>
       <component v-for="(child, index) in children" :key="index" :is="child" />
     </div>
-  </section>
 </template>
 
 <style scoped>
 .videoView {
   position: relative;
   text-align: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

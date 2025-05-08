@@ -15,8 +15,8 @@ defineProps({
        <img src="/image/icon3.png" class="header_icon3">
        <img src="/image/rogo_mirrow1.png" class="sns_logo" v-if="inside==false">
        <img src="/image/rogo_mirrow2.png" class="sns_logo" :class="{inSide: inside}" v-if="inside">
-       <img src="https://placehold.jp/110x58.png" class="sns_live" v-if="inside==false">
-       <img src="https://placehold.jp/3d4070/ffffff/110x58.png" class="sns_live" :class="{inSide: inside}" v-if="inside">
+       <img src="/image/LIVE.png" class="sns_live" v-if="inside==false">
+       <img src="/image/ALIVE.png" class="sns_live" :class="{inSide: inside}" v-if="inside">
      </div>
    </header>
 </template>
@@ -70,8 +70,10 @@ header{
 
 .sns_live{
     float: right;
-    margin-top: 90px;
-    margin-right: 60px;
+    margin-top: 60px;
+    margin-right: 45px;
+    width: 150px;
+    height: auto;
 }
 
 /* 裏側用 */

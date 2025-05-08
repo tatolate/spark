@@ -1,13 +1,34 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 
+// いいねのリストを管理
+const likes = ref<number[]>([]);
+
+// いいねを追加する関数
+const addLike = () => {
+  likes.value.push(Date.now()); // 一意の値をキーとして使用
+  if (likes.value.length > 100) {
+    likes.value.shift(); // 最大つまで保持
+  }
+};
+
+// 一定間隔でいいねを追加
+onMounted(() => {
+  setInterval(addLike, 1000); // 1秒ごとにいいねを追加
+});
 </script>
 
 <template>
 <div class="main_like">
-  <img src="/image/like.png" alt="" class="float_like">
-  <img src="/image/like.png" alt="" class="float_like2">
-  <img src="/image/like.png" class="like_btn">
-</div>
+    <img
+      v-for="like in likes"
+      :key="like"
+      src="/image/like.png"
+      alt=""
+      class="float_like"
+    />
+    <img src="/image/like.png" class="like_btn" />
+  </div>
 </template>
 
 <style scoped>
@@ -21,7 +42,7 @@
     height: auto;
     margin-left: 15px;
     animation-name: likeheart;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-timing-function: ease-out;
     animation-iteration-count:infinite;
 }
@@ -38,7 +59,7 @@
 
   100%{
     transform: rotate(-40deg);
-    transform: translateY(-300%);
+    transform: translateY(-400%);
     opacity: 0;
   }
 }
