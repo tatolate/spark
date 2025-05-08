@@ -147,10 +147,11 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
       detection.boundingBox.width;
 
  // expansionFactor倍に拡大
+    const expansionFactor = 2;
     const boxWidth = detection.boundingBox.width * scale;
-    const boxHeight = detection.boundingBox.height * scale;
+    const boxHeight = detection.boundingBox.height * scale * expansionFactor;
     const boxLeft = mirroredOriginX * scale;
-    const boxTop = detection.boundingBox.originY * scale;
+    const boxTop = detection.boundingBox.originY * scale - boxHeight * 0.3;
 
     const sparkleWrapperVNode = h(
       "div",
@@ -166,7 +167,7 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
           zIndex: "1",
         },
       },
-      [h(SparkleEffect, { width: `${boxWidth * 3}px`, height: `${boxHeight * 1.1}px` })]
+      [h(SparkleEffect, { width: `${boxWidth * 3}px`, height: `${boxHeight * 3}px` })]
     );
 
     children.value.push(sparkleWrapperVNode);
