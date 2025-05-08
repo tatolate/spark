@@ -15,7 +15,6 @@ const showFrame5 = ref(false);
 const isBlackout = ref(false); // ブラックアウト用のフラグ
 
 const frame5Text = ref("縺偵ｓ縺倥▽に戻る");
-const glitchText = "偵ｓ縺倥縺にる戻▽"; // 文字化け後の文字列
 
 onMounted(() => {
   // 10秒後に frame5 を表示
@@ -33,8 +32,8 @@ onMounted(() => {
   }, 3000); // ミリ秒 (秒)
 
   setInterval(() => {
-    frame5Text.value = frame5Text.value === "縺偵ｓ縺倥▽に戻る" ? glitchText : "縺偵ｓ縺倥▽に戻る";
-  }, 100); // 500msごとに切り替え
+    frame5Text.value = Math.random() > 0.5 ? "縺偵ｓ縺倥▽に戻る" : generateGlitchText("縺偵ｓ縺倥▽に戻る");
+  }, 80); // 500msごとに切り替え
 });
 
 const goToNextPage = () => {
@@ -45,6 +44,13 @@ const goToNextPage = () => {
   }, 1000); // 1秒後に遷移
 };
 
+const generateGlitchText = (text: string) => {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  return text
+    .split("")
+    .map((char) => (Math.random() > 0.5 ? char : chars[Math.floor(Math.random() * chars.length)]))
+    .join("");
+};
 </script>
 
 <template>
@@ -94,7 +100,7 @@ const goToNextPage = () => {
 
   left:0;
   width: 100%;
-  height: 82%;
+  bottom: 0;
   }
 .frame3{
   position: absolute;
@@ -113,8 +119,9 @@ const goToNextPage = () => {
   left: 50%; /* 親要素の幅の50% */
   transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
   text-align: center; /* テキストを中央揃え */
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 23px;
+  width: 100%;
   }
 
   .blackout {
@@ -176,159 +183,5 @@ const goToNextPage = () => {
 
 
 
-@keyframes noise-anim {
-  0% {
-    clip: rect(77px, 9999px, 6px, 0);
-  }
-  5% {
-    clip: rect(65px, 9999px, 70px, 0);
-  }
-  10% {
-    clip: rect(82px, 9999px, 82px, 0);
-  }
-  15% {
-    clip: rect(32px, 9999px, 35px, 0);
-  }
-  20% {
-    clip: rect(31px, 9999px, 49px, 0);
-  }
-  25% {
-    clip: rect(18px, 9999px, 46px, 0);
-  }
-  30% {
-    clip: rect(94px, 9999px, 64px, 0);
-  }
-  35% {
-    clip: rect(69px, 9999px, 31px, 0);
-  }
-  40% {
-    clip: rect(6px, 9999px, 72px, 0);
-  }
-  45% {
-    clip: rect(25px, 9999px, 35px, 0);
-  }
-  50% {
-    clip: rect(82px, 9999px, 26px, 0);
-  }
-  55% {
-    clip: rect(7px, 9999px, 92px, 0);
-  }
-  60% {
-    clip: rect(54px, 9999px, 30px, 0);
-  }
-  65% {
-    clip: rect(86px, 9999px, 90px, 0);
-  }
-  70% {
-    clip: rect(38px, 9999px, 65px, 0);
-  }
-  75% {
-    clip: rect(41px, 9999px, 66px, 0);
-  }
-  80% {
-    clip: rect(31px, 9999px, 37px, 0);
-  }
-  85% {
-    clip: rect(8px, 9999px, 12px, 0);
-  }
-  90% {
-    clip: rect(50px, 9999px, 69px, 0);
-  }
-  95% {
-    clip: rect(7px, 9999px, 42px, 0);
-  }
-  100% {
-    clip: rect(14px, 9999px, 57px, 0);
-  }
-}
-.frame5:after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  text-shadow: -1px 0 red;
-  top: 0;
-  color: white;
-  background: black;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 2s infinite linear alternate-reverse;
-}
 
-@keyframes noise-anim-2 {
-  0% {
-    clip: rect(18px, 9999px, 13px, 0);
-  }
-  5% {
-    clip: rect(74px, 9999px, 51px, 0);
-  }
-  10% {
-    clip: rect(33px, 9999px, 65px, 0);
-  }
-  15% {
-    clip: rect(64px, 9999px, 66px, 0);
-  }
-  20% {
-    clip: rect(75px, 9999px, 6px, 0);
-  }
-  25% {
-    clip: rect(40px, 9999px, 49px, 0);
-  }
-  30% {
-    clip: rect(71px, 9999px, 1px, 0);
-  }
-  35% {
-    clip: rect(42px, 9999px, 73px, 0);
-  }
-  40% {
-    clip: rect(92px, 9999px, 57px, 0);
-  }
-  45% {
-    clip: rect(4px, 9999px, 33px, 0);
-  }
-  50% {
-    clip: rect(4px, 9999px, 34px, 0);
-  }
-  55% {
-    clip: rect(49px, 9999px, 25px, 0);
-  }
-  60% {
-    clip: rect(24px, 9999px, 44px, 0);
-  }
-  65% {
-    clip: rect(31px, 9999px, 99px, 0);
-  }
-  70% {
-    clip: rect(54px, 9999px, 83px, 0);
-  }
-  75% {
-    clip: rect(57px, 9999px, 97px, 0);
-  }
-  80% {
-    clip: rect(3px, 9999px, 15px, 0);
-  }
-  85% {
-    clip: rect(84px, 9999px, 34px, 0);
-  }
-  90% {
-    clip: rect(100px, 9999px, 88px, 0);
-  }
-  95% {
-    clip: rect(91px, 9999px, 59px, 0);
-  }
-  100% {
-    clip: rect(10px, 9999px, 87px, 0);
-  }
-}
-.frame5:before {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  text-shadow: 1px 0 blue;
-  top: 0;
-  color: white;
-  background: black;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 3s infinite linear alternate-reverse;
-}
 </style>

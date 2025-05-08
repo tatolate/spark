@@ -29,7 +29,7 @@ const FadeIn = {
   <main>
     <div class="TitleCall">
       <Motion v-bind="FadeIn">
-        <NotFoundNoise style="color: black; font-size: 30px;">人間やめますか<br>バズりますか。</NotFoundNoise>
+        <NotFoundNoise style="color: black; font-size: 30px;"><span>バズ</span>りますか　　　　<br>　　　　<span>人間</span>やめますか。</NotFoundNoise>
       </Motion>
       <Motion v-bind="{ initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1 } }" v-show="showSecondMotion && imagesLoaded">
         <NotFoundNoise @click="$emit('nextpage')" style="color: red; font-size: 25px; height: 30px; font-family: 'Hina Mincho', serif; font-weight: 400; font-style: normal;">
@@ -52,6 +52,10 @@ main .TitleCall {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+span {
+  font-size: 40px;
 }
 
 main .TitleCall > *:not(:last-child) {
