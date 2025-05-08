@@ -14,6 +14,8 @@ const updateBitOfHorror = () => {
     }
     TheEndOfPage.value = true;
 }
+const NoiseAudio=new Audio;
+NoiseAudio.src="/SOUND/background-sound.mp3"
 const updateScaryText2 = () => {
     const newH1 = document.createElement("h1");
     newH1.textContent = TheEndOfPageTexts[Math.floor(Math.random() * TheEndOfPageTexts.length)];
@@ -27,6 +29,7 @@ const updateScaryText2 = () => {
     const mainElement = document.querySelector("main");
     if (mainElement) {
         mainElement.appendChild(newH1);
+        NoiseAudio.play();
     }
 }
 setTimeout(updateBitOfHorror, 1000);

@@ -27,12 +27,12 @@ defineProps({
     }
 })
 const ContentFont = ref<string>("");
-const randomFont = (count: number) => {
+const randomFont = () => {
     const fonts = ['Dela Gothic One', 'DotGothic16', 'New Tegomin', 'Noto Serif JP', 'Rampart One', 'Reggae One', 'Zen Kurenaido'];
     ContentFont.value = fonts[Math.floor(Math.random() * fonts.length)];
-    if (count > 0) { setTimeout(() => { randomFont(count - 1); }, 50); }
+    setTimeout(()=>{randomFont},50)
 };
-randomFont(50);
+setInterval(()=>{randomFont();}, 50);
 </script>
 
 <template>
@@ -43,7 +43,7 @@ randomFont(50);
         <div class="snssentence">
             <div class="snsuser">
                 <img src="https://placehold.jp/50x50.png" class="usericon" :class="{ inSide: inside }">
-                <h3 class="username" :class="{ inSide: inside }">{{ AccountName }}<span class="userid"> {{ AccountID
+                <h3 class="username" :class="{ inSide: inside }" :style="inside ? { fontFamily: ContentFont, fontStyle: 'normal' } : {}">{{ AccountName }}<span class="userid"> {{ AccountID
                         }}</span></h3>
             </div>
             <div class="userpost" :class="{ inSide: inside }">
@@ -51,7 +51,7 @@ randomFont(50);
                 <GlitchedElement v-else :options="{ 'timing': { 'duration': timing } }">
                     <img :src="typeof PostImage === 'string' ? PostImage : PostImage.src" class="postmedia">
                 </GlitchedElement>
-                <p :style="inside ? { fontFamily: ContentFont, fontStyle: 'normal' } : {}">
+                <p>
                     <slot></slot>
                 </p>
             </div>
