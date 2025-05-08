@@ -6,10 +6,13 @@ import Like from "../components/bodys/like.vue"
 
 import { ref, onMounted } from "vue";
 
+const emit = defineEmits(["nextpage"]);
+
 // frame5 の表示状態を管理するフラグ
 const showFrame3 = ref(false);
 const showFrame4 = ref(false);
 const showFrame5 = ref(false);
+const isBlackout = ref(false); // ブラックアウト用のフラグ
 
 onMounted(() => {
   // 10秒後に frame5 を表示
@@ -27,6 +30,13 @@ onMounted(() => {
   }, 3000); // ミリ秒 (秒)
 });
 
+const goToNextPage = () => {
+  isBlackout.value = true;
+  setTimeout(() => {
+    // ブラックアウト後に次のページに遷移
+    emit("nextpage");
+  }, 1000); // 1秒後に遷移
+};
 
 </script>
 
@@ -45,8 +55,9 @@ onMounted(() => {
   <like class="like"/>
   </div>
   <div v-if="showFrame5" class="frame5">
-      <div @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</div>
+    <div @click="goToNextPage">縺偵ｓ縺倥▽に戻る</div>
     </div>
+    <div v-if="isBlackout" class="blackout"></div>
   </div>
 </template>
 
@@ -96,4 +107,52 @@ onMounted(() => {
   transform: translate(-50%, -50%); /* 要素の中心を基準に移動 */
   text-align: center; /* テキストを中央揃え */
   }
+
+  .blackout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  animation: blackout-animation 3s forwards;
+  z-index: 100; /* 他の要素の上に表示 */
+}
+
+@keyframes blackout-animation {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>
