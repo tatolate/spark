@@ -111,7 +111,7 @@ const generateGlitchText = (text: string) => {
 .frame4{
   position: absolute;
   z-index: 10;
-  bottom: 0px
+  bottom: 0px;
 }
 .frame5{
   position: absolute;
