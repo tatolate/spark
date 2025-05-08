@@ -7,13 +7,24 @@ import Like from "../components/bodys/like.vue"
 import { ref, onMounted } from "vue";
 
 // frame5 の表示状態を管理するフラグ
+const showFrame3 = ref(false);
+const showFrame4 = ref(false);
 const showFrame5 = ref(false);
 
 onMounted(() => {
-  // 5秒後に frame5 を表示
+  // 10秒後に frame5 を表示
   setTimeout(() => {
     showFrame5.value = true;
-  }, 10000); // ミリ秒 (秒)
+  }, 30000); // ミリ秒 (秒)
+
+  // 秒後に frame4 を表示
+  setTimeout(() => {
+    showFrame4.value = true;
+  }, 3000); // ミリ秒 (秒)
+
+  setTimeout(() => {
+    showFrame3.value = true;
+  }, 3000); // ミリ秒 (秒)
 });
 
 
@@ -27,10 +38,10 @@ onMounted(() => {
   <div class="frame2">
   <FaceDetectionNoisever />
   </div>
-  <div class="frame4">
+  <div v-if="showFrame4" class="frame4">
   <Comment />
   </div>
-  <div class="frame3">
+  <div v-if="showFrame3" class="frame3">
   <like class="like"/>
   </div>
   <div v-if="showFrame5" class="frame5">
