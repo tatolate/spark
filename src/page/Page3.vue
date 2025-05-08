@@ -22,7 +22,7 @@ import Like from "../components/bodys/like.vue"
   <like class="like"/>
   </div>
   <div class="frame5">
-  <button @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</button>
+  <div @click="$emit('nextpage')">縺偵ｓ縺倥▽に戻る</div>
   </div>
   </div>
 </template>
@@ -34,31 +34,44 @@ import Like from "../components/bodys/like.vue"
 
 .all-frame{
   overflow-x: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  position: relative;
+  width: 100vw;
   height: 100vh;
+  overflow-y: hidden;
 }
 .frame1{
-  position: relative;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 0%;
+
 }
 .frame2{
-  position: relative;
+  position: absolute;
+  top:163px;
+
+  left:0;
+  width: 100%;
+  height: 82%;
   }
 .frame3{
-  position: relative;
+  position: absolute;
   float: right;
-  margin-right: 70px;
+  right: 70px;
   bottom: 70px;
   }
 .frame4{
-  position: relative;
+  position: absolute;
   z-index: 10;
-  height: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  bottom: 0px
 }
 .frame5{
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   }
 </style>
