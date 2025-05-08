@@ -23,6 +23,7 @@ defineProps({
     <div v-for="(post, index) in inside ? contentdata.PostContents_Back : contentdata.PostContents_Front" :key="index">
       <snsContent :AccountID="post.Account_id" :PostImage="post.PostImage"
       :AccountName="post.Account_name" :inside="inside"
+      :Comment="post.Comments"
       :timing="Math.floor(Math.random()* 1000+3000)">
       <span v-html="post.PostContent"></span>
       </snsContent>
