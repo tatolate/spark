@@ -132,7 +132,7 @@ const goToNextPage = () => {
   background-color: black;
   opacity: 0;
   animation: blackout-animation 2s forwards;
-  z-index: 100; /* 他の要素の上に表示 */
+  z-index: 100000000; /* 他の要素の上に表示 */
 }
 
 @keyframes blackout-animation {

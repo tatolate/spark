@@ -194,13 +194,14 @@ if (displayHeight >= video.videoHeight && displayHeight >= displayWidth) {
           height: `${boxHeight}px`, // Pass height to wrapper
           // border: '2px solid rgba(255, 0, 0, 0.5)', // Optional: Add border for debugging
           // overflow: 'hidden', // Removed: Allow noise to overflow
+          transform: "translateX(20%)",
           pointerEvents: 'none', // Prevent interaction with the wrapper
           zIndex: '1' // Add z-index to bring it to the front
         }
       },
       [ // Children of the wrapper div
         h(VideoNoise, { // The VideoNoise component itself
-          width: `${boxWidth}px`, // Pass width prop
+          width: `${boxWidth / 1.5}px`, // Pass width prop
           height: `${boxHeight}px` // Pass height prop
         })
       ]
