@@ -98,7 +98,7 @@ defineProps({
     height: 40px;
     margin: 0px;
     padding: 0px;
-    
+    line-height: 28px;
     background-color: #5ce1e6;
     border: solid 7px #fffba7;
    }
@@ -109,7 +109,7 @@ defineProps({
     height: 40px;
     margin: 0px;
     padding: 0px;
-    
+    line-height: 28px;
     background-color: #5ce1e6;
     border: solid 7px #fffba7;
    }
@@ -121,7 +121,7 @@ defineProps({
     height: 40px;
     margin: 0px;
     padding: 0px;
-    
+    line-height: 28px;
     background-color: #5ce1e6;
     border: solid 7px #fffba7;
    }
@@ -161,6 +161,7 @@ defineProps({
     padding: 0px;
     background-color: black;
     border: solid 7px red;
+    line-height: 28px;
    }
 
    .header_inside2{
@@ -171,6 +172,7 @@ defineProps({
     padding: 0px;
     background-color: black;
     border: solid 7px red;
+    line-height: 28px;
    }
 
    .header_inside3{
@@ -181,6 +183,7 @@ defineProps({
     padding: 0px;
     background-color: black;
     border: solid 7px red;
+    line-height: 28px;
    }
 
    .header_icon1.inSide{
