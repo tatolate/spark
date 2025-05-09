@@ -7,6 +7,7 @@ interface ContentDataType {
       description: string
     }[];
     PostContents_Front: {
+      AccountImage: string | HTMLImageElement;
       Account_id: string;
       PostContent: string;
       Account_name: string;
@@ -19,6 +20,7 @@ interface ContentDataType {
       }[];
     }[];
     PostContents_Back:{
+      AccountImage: string | HTMLImageElement;
       Account_id: string;
       PostContent: string;
       Account_name: string;

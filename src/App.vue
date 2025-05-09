@@ -49,6 +49,18 @@ const preloadImages = (resultData: ContentDataType): Promise<ContentDataType> =>
     }
   });
 
+  resultData.PostContents_Front.forEach(post => {
+    if (post.AccountImage && typeof post.AccountImage === 'string') {
+      post.AccountImage = preload(post.AccountImage);
+    }
+  });
+
+  resultData.PostContents_Back.forEach(post => {
+    if (post.AccountImage && typeof post.AccountImage === 'string') {
+      post.AccountImage = preload(post.AccountImage);
+    }
+  });
+
   return Promise.all(imagePromises).then(() => resultData);
 };
 

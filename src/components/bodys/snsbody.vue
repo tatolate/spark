@@ -5,6 +5,10 @@ import { GlitchedElement } from 'vue-powerglitch'
 
 
 defineProps({
+    AccountImage: {
+        type: [String, Object] as PropType<string | HTMLImageElement>,
+        required: true,
+    },
     AccountName: {
         type: String,
         required: true,
@@ -47,7 +51,7 @@ setInterval(()=>{randomFont();}, 50);
     <div :class="{ inSide: inside }">
         <div class="snssentence">
             <div class="snsuser">
-                <img src="https://placehold.jp/50x50.png" class="usericon" :class="{ inSide: inside }">
+                <img src="AccountImage" class="usericon" :class="{ inSide: inside }">
                 <h3 class="username" :class="{ inSide: inside }" :style="inside ? { fontFamily: ContentFont, fontStyle: 'normal' } : {}">{{ AccountName }}<span class="userid"> {{ AccountID
                         }}</span></h3>
             </div>
@@ -94,6 +98,8 @@ setInterval(()=>{randomFont();}, 50);
 
 .usericon {
     position: absolute;
+    width: 50px;
+    height: auto;
     font-size: 10px;
     margin-left: 8px;
     border-radius: 100px;
