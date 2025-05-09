@@ -42,6 +42,12 @@ const randomFont = () => {
     setTimeout(()=>{randomFont},50)
 };
 setInterval(()=>{randomFont();}, 50);
+
+let count = ref<number>(0)
+setInterval(()=>{
+    count.value = count.value + 1 
+
+}, 5000);
 </script>
 
 <template>
@@ -70,8 +76,10 @@ setInterval(()=>{randomFont();}, 50);
                 
                     <div class="comlist">
                         <p class="everyone">みんなのコメント：</p>
-                            <p class="com_list"  :class="`comid${index + 1}`" 
-                            v-for="(Comments, index) in Comment">
+                            <p  v-for="(Comments, index) in Comment"
+                             class="com_list comid1"  
+                            :style="{  opacity: count % Comment.length === index ?1 : 0 }"
+                          >
                                 @{{ Comments.account_id }} <br>
                                 {{ Comments.CommentContent }}
                             </p>
@@ -115,7 +123,7 @@ setInterval(()=>{randomFont();}, 50);
     border-radius: 20px;
     z-index: 5;
     padding-left: 20px;
-    padding-right: 30px;
+    width: 300px;    
 }
 
 .userid {
@@ -172,48 +180,7 @@ setInterval(()=>{randomFont();}, 50);
 }
 
 .comid1{
-    /* transition: opacity 0 5s; 
-    opacity: 1; */
-    animation: comment 15s linear infinite;
-    opacity: 0;
-
-}
-
-.comid2{
-    animation: comment 15s linear infinite;
-    animation-delay: 5s;
-    opacity: 0;
-}
-.comid3{
-    animation: comment 15s linear infinite;
-    animation-delay: 10s;
-    opacity: 0;
-}
-.comid4{
-    animation: comment 15s linear infinite;
-    animation-delay: 15s;
-    opacity: 0;
-}
-
-@keyframes comment{
-  0% {
-    opacity: 0;
-  }
-  8.333% {
-    opacity: 1;
-  }
-  16.667% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  33.333% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+    transition: opacity 0.5s; 
 }
 
 /* ここから裏側投稿用 */
