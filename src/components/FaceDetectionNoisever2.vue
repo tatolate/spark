@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import WholeNoise from "../components/Noise/WholeNoise.vue";
 import { ref, onMounted, onBeforeUnmount, nextTick, h, type VNode } from "vue"; // h, VNode をインポート
 import {
   FaceDetector,
@@ -265,6 +266,9 @@ const VideoNoise = (props: { width: string; height: string }) => {
       class="videoView"
       style="position: relative"
     >
+  <div v-for="i in 10" :key="i">
+    <WholeNoise />
+  </div>
       <video
         ref="videoRef"
         id="webcam"
