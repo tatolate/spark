@@ -87,6 +87,8 @@ setInterval(()=>{randomFont();}, 50);
 .snssentence {
     position: relative;
     padding-top: 51px;
+    margin: 0 auto;
+    width: 399px;
 }
 
 .snsuser {
