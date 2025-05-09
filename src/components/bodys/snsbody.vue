@@ -39,7 +39,6 @@ const ContentFont = ref<string>("");
 const randomFont = () => {
     const fonts = ['Dela Gothic One', 'DotGothic16', 'New Tegomin', 'Noto Serif JP', 'Rampart One', 'Reggae One', 'Zen Kurenaido'];
     ContentFont.value = fonts[Math.floor(Math.random() * fonts.length)];
-    setTimeout(()=>{randomFont},50)
 };
 setInterval(()=>{randomFont();}, 50);
 
@@ -173,13 +172,15 @@ setInterval(()=>{
 }
 .com_list{
     position: absolute;
-    width: 280px;
+    width: 270px;
 }
 .everyone{
+    margin-left: 5px;
     margin-bottom: 0px;
 }
 
 .comid1{
+    margin-left: 5px;
     transition: opacity 0.5s; 
 }
 
