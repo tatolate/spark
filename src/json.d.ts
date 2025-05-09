@@ -13,7 +13,7 @@ interface ContentDataType {
       PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {
-        Comment_id: string;
+        account_id: string;
         CommentContent: string;
         CommentDate: string;
       }[];
@@ -25,7 +25,7 @@ interface ContentDataType {
       PostImage: string | HTMLImageElement;
       PostDate: string;
       Comments: {
-        Comment_id: string;
+        account_id: string;
         CommentContent: string;
         CommentDate: string;
       }[];
