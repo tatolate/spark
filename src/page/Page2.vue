@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <div class="all-frame">
-  <Header :inside="inside"/>
+  <Header id="header" :inside="inside"/>
   <div v-if="contentdata">
     <div v-for="(post, index) in inside ? contentdata.PostContents_Back : contentdata.PostContents_Front" :key="index">
       <snsContent :AccountImage="post.AccountImage" :AccountID="post.Account_id" :PostImage="post.PostImage"
@@ -29,12 +29,18 @@ defineProps({
       </snsContent>
     </div>
   </div>
-  <Go_viral :inside="inside" @click="$emit('nextpage')"/>
+  <Go_viral :inside="inside" @click="$emit('nextpage')">
+    <a href="#header" class="back_top"/>
+  </Go_viral>
   </div>
 </template>
 
 <style scoped>
 .all-frame{
   overflow-x: hidden;
+}
+
+.back_top{
+  scroll-behavior: auto;
 }
 </style>
