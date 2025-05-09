@@ -266,7 +266,7 @@ const VideoNoise = (props: { width: string; height: string }) => {
       class="videoView"
       style="position: relative"
     >
-  <div v-for="i in 5" :key="i">
+  <div v-for="i in 10" :key="i">
     <WholeNoise />
   </div>
       <video
