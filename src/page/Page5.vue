@@ -3,7 +3,6 @@ import Comment from '../../src/components/bodys/comment2.vue';
 import FaceDetectionNoisever from '../../src/components/FaceDetectionNoisever2.vue';
 import LiveHeader from "../components/Headers/liveheaders.vue";
 import bad from "../components/bodys/bad.vue"
-import WholeNoise from "../components/Noise/WholeNoise.vue";
 
 import { ref, onMounted } from "vue";
 
@@ -66,9 +65,6 @@ const goToNextPage = () => {
     <div @click="goToNextPage">現実に戻る</div>
     </div>
     <div v-if="isBlackout" class="blackout"></div>
-      <div v-for="i in 5" :key="i">
-    <WholeNoise />
-  </div>
   </div>
 </template>
 
