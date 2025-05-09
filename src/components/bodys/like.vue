@@ -7,7 +7,7 @@ const likes = ref<number[]>([]);
 // いいねを追加する関数
 const addLike = () => {
   likes.value.push(Date.now()); // 一意の値をキーとして使用
-  if (likes.value.length > 100) {
+  if (likes.value.length > 50) {
     likes.value.shift(); // 最大つまで保持
   }
 };
