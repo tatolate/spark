@@ -51,7 +51,7 @@ setInterval(()=>{randomFont();}, 50);
     <div :class="{ inSide: inside }">
         <div class="snssentence">
             <div class="snsuser">
-                <img src="AccountImage" class="usericon" :class="{ inSide: inside }">
+                <img :src="typeof AccountImage === 'string' ? AccountImage : AccountImage.src" class="usericon" :class="{ inSide: inside }">
                 <h3 class="username" :class="{ inSide: inside }" :style="inside ? { fontFamily: ContentFont, fontStyle: 'normal' } : {}">{{ AccountName }}<span class="userid"> {{ AccountID
                         }}</span></h3>
             </div>
